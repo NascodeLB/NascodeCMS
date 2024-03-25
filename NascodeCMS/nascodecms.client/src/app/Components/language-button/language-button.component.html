@@ -1,0 +1,20 @@
+<div class="u-relative">
+  <div class="Languagebtn IWantAMouseOVerNowBut75 " (click)="changeShowListStatus()">
+    <div class="ic_language"></div>
+    <div class="u-ml-xs-10 u-mt-xs-2">
+      {{ Title }}
+    </div>
+  </div>
+
+  <div class="LanguageDropdownContainer" *ngIf="ShowList == true">
+    <div class="ic_traingle"></div>
+    <div class="LanguageList">
+      <div class="LanguageListItem IWantAMouseOVerNowBut50" *ngFor="let item of Languages" (click)="changeSelectedLanguage(item.id, item.code)">
+        <div>{{ item.title }}</div>
+        <div class="ic_checked" *ngIf="SelectLangaugeId == item.id"></div>
+      </div>
+    
+    </div>
+  </div>
+
+</div>

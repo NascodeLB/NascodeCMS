@@ -1,0 +1,140 @@
+.SideBarContainer {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 12px;
+  transition: width ease-in-out 0.3s;
+  overflow: hidden;
+}
+
+.SideBarHeader {
+  margin: 0px 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #D4D9E6;
+}
+
+.Logo{
+    background-image: url(../../../assets/images/ic_logo.svg);
+    background-repeat: no-repeat;
+    width: 77px;
+    height: 39px;
+}
+.ic_pin {
+  background-image: url(../../../assets/images/ic_pin_open.svg);
+  background-repeat: no-repeat;
+  width: 21px;
+  height: 19.41px;
+  cursor: pointer;
+}
+
+.ic_pin_closed {
+  background-image: url(../../../assets/images/ic_pin_closed.svg);
+}
+.SmallMenu {
+  width: 92px !important;
+}
+.justify-center{
+    justify-content: center;
+}
+
+.DropListTitle {
+  font-family: 'bevietnam_regular';
+  font-size: 14px;
+  line-height: 1;
+  color: #3F3F3F;
+  margin-top: 1px;
+  text-transform: capitalize;
+}
+
+.DropListHead {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.icon {
+  margin: 0px 16px;
+ 
+}
+.justify-normal{
+    justify-content: normal;
+}
+.Hovered {
+  padding: 10px 0px;
+  border-radius: 12px;
+  width: inherit;
+  align-items: center;
+  display: flex;
+  margin-right: 20px;
+  justify-content: space-between;
+}
+
+
+.SelectIndicator {
+  min-width: 4px;
+  height: 24px;
+  border-radius: 16px;
+  margin-right: 16px;
+  background-color: transparent;
+}
+.SelectIndicator-Selected {
+  background-color: #CE2F66;
+}
+
+.selected {
+  background-color: #D4D9E6;
+}
+
+.ic_down {
+  background-image: url(../../../assets/images/ic_arrrow_down.svg);
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 7px;
+  margin-right: 20px;
+}
+
+.ic_up {
+  background-image: url(../../../assets/images/ic_arrow_up.svg);
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 7px;
+  margin-right: 20px;
+}
+
+.ListLink {
+  font-family: 'bevietnam_regular';
+  font-size: 13px;
+  line-height: 1.2;
+  color: #B4BAC7;
+  cursor: pointer;
+}
+
+.ListLinkSelected {
+  color: #3F3F3F;
+}
+
+.ListLink:hover, .linkhover:hover {
+  color: #3F3F3F !important;
+}
+
+.LinksList {
+  max-width: fit-content;
+  list-style: none;
+  margin-left: 72px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height  ease-in-out 0.4s;
+}
+
+.LinkListItem {
+  margin-bottom: 15px;
+}
+
+.expanded {
+  max-height: 200px; /* Adjust this value as needed */
+ 
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="17.722" viewBox="0 0 12 17.722">
+  <g id="Group_21406" data-name="Group 21406" transform="translate(-481 -381.139)">
+    <g id="IC_arrow-down" data-name="IC arrow-down" transform="translate(493 388) rotate(180)">
+      <path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M12.19,16.039,16.727,11.5a.854.854,0,0,1,1.211,0,.865.865,0,0,1,0,1.215L12.8,17.858a.856.856,0,0,1-1.183.025L6.438,12.717A.858.858,0,0,1,7.649,11.5Z" transform="translate(-6.188 -11.246)" fill="#3f3f3f"/>
+    </g>
+    <g id="IC_arrow-down-2" data-name="IC arrow-down" transform="translate(481 392)">
+      <path id="Icon_ionic-ios-arrow-down-2" data-name="Icon ionic-ios-arrow-down" d="M12.19,16.039,16.727,11.5a.854.854,0,0,1,1.211,0,.865.865,0,0,1,0,1.215L12.8,17.858a.856.856,0,0,1-1.183.025L6.438,12.717A.858.858,0,0,1,7.649,11.5Z" transform="translate(-6.188 -11.246)" fill="#3f3f3f"/>
+    </g>
+  </g>
+</svg>

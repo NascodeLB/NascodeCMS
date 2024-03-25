@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.679" height="21" viewBox="0 0 16.679 21">
+  <g id="_1086770_bullets_content_form_guide_list_icon" data-name="1086770_bullets_content_form_guide_list_icon" transform="translate(-25.241 -14.364)">
+    <path id="Path_48" data-name="Path 48" d="M41.419,33.525a1.337,1.337,0,0,1-1.334,1.339H27.075a1.337,1.337,0,0,1-1.334-1.339V16.2a1.337,1.337,0,0,1,1.334-1.339h13.01A1.337,1.337,0,0,1,41.42,16.2V33.525Z" fill="none" stroke="#3f3f3f" stroke-miterlimit="10" stroke-width="1"/>
+    <g id="Group_76" data-name="Group 76" transform="translate(32.239 20.798)">
+      <line id="Line_3" data-name="Line 3" x2="4.661" transform="translate(0 7.75)" fill="none" stroke="#3f3f3f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+      <line id="Line_4" data-name="Line 4" x2="4.661" transform="translate(0 3.997)" fill="none" stroke="#3f3f3f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+      <line id="Line_5" data-name="Line 5" x2="4.661" transform="translate(0 0)" fill="none" stroke="#3f3f3f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+    <circle id="Ellipse_11" data-name="Ellipse 11" cx="0.804" cy="0.804" r="0.804" transform="translate(29.02 20.012)" fill="#3f3f3f"/>
+    <circle id="Ellipse_12" data-name="Ellipse 12" cx="0.804" cy="0.804" r="0.804" transform="translate(29.02 24.06)" fill="#3f3f3f"/>
+    <circle id="Ellipse_13" data-name="Ellipse 13" cx="0.804" cy="0.804" r="0.804" transform="translate(29.02 27.744)" fill="#3f3f3f"/>
+  </g>
+</svg>

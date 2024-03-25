@@ -1,0 +1,16 @@
+<div *ngIf="show" class="PopUpContainer u-animateMe" [@fadeInOut]>
+  <div class="PopUpMessageContainer">
+    <div class="ic_close IWantAMouseOVerNowBut50" (click)="close()"></div>
+    <div class="PopUpMessageHead" [style.background-color]="backgroundColor">
+      <div class="PopUpIcon {{icon}}"></div>
+    </div>
+    <div class="TableTitle PopupMessageTitle">
+      {{title}}
+    </div>
+    <div class="Desc PopupMessageDesc" [innerHTML]="convertLineBreaks(desc)"></div>
+    <div class="PopUpButtonsContainer">
+      <app-icon-title-button (click)="cancelAction()" class="u-mr-xs-20" Title="Cancel" BackgroundColor="transparent" TextColor="#3F3F3F" *ngIf="type != 'Success'"></app-icon-title-button>
+      <app-icon-title-button (click)="confirmAction()" Title="{{buttonTitle}}" BackgroundColor="#3F3F3F" style="min-width: 116px;"></app-icon-title-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+.editmode-td{
+    padding: 0px;
+}
+.editmode-input {
+  height: 73px;
+  border: 1px solid white;
+  
+  border-radius: 0px;
+}
+.editmode-tr:hover, .editmode-td:hover{
+  background-color: white;
+  box-shadow: none
+}
+.editmode-tr {
+  border-bottom: 1px solid #eeefef;
+}
+
+
+
+
+.border-collapse {
+
+  border-right: 1px solid #D4D9E6; /* Add border to all cells */
+}
+
+    /*.border-collapse:first-child {
+      border-left: none;*/ /* Remove right border for all cells except last child */
+    /*}*/
+
+  .border-collapse:last-child {
+    border-right: #D4D9E6; /* Remove bottom border for all cells in rows except last row */
+  }
+
+.editmode-input:hover {
+  background-color: #F4F5F8;
+  border: 1px solid #00A2FF !important;
+ 
+}
+.inputError{
+    border-color: red;
+}

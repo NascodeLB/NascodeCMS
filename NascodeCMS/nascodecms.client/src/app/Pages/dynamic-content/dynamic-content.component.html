@@ -1,0 +1,183 @@
+
+<div class="NormalDiv">
+  <div class="PageContainer">
+    <div class="PageTitle">{{categoryTitle}}</div>
+    <div class="u-ht-xs-20"></div>
+    <div class="TableContainer">
+      <div class="TableHeader u-width100">
+
+        <div class="TableTitle floatL display-flex-center u-pd-tb-13">
+          <div class="ic_back IWantAMouseOVerNowBut75 u-mr-xs-10" *ngIf="ViewMode != 'Items'" (click)="goback()"></div>
+          {{ViewMode}} <span *ngIf="ViewMode == 'Items'" class="DescriptionMeduim ColorMyTitleBlack u-pl-xs-10 u-pl-xs-2">{{ HeadMessage}}</span>
+
+        </div>
+        <div class="floatR">
+          <app-icon-button class="floatL u-ml-xs-20 mg-bt-10-970" IconSource="../../assets/images/ic_clone.svg" (click)="onCloneCLick()" *ngIf="ShowClone && PagePermissions.cloneOpr"></app-icon-button>
+          <app-print-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="ShowPrint && PagePermissions.printOpr"></app-print-button>
+          <app-export-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="ShowExport && PagePermissions.exportOpr"></app-export-button>
+          <app-icon-button class="floatL u-ml-xs-20 mg-bt-10-970" IconSource="../../assets/images/ic_edit_black.svg" (click)="onEditCLick()" *ngIf="ShowEdit && PagePermissions.editOpr"></app-icon-button>
+          <app-icon-button class="floatL u-ml-xs-20 mg-bt-10-970" BackgroundColor="#F9E9EF" IconSource="../../assets/images/ic_delete_red.svg" (click)="onDeleteCLick()" *ngIf="ShowDelete && PagePermissions.deleteOpr"></app-icon-button>
+          <app-search-bar class="floatL u-ml-xs-20 mg-bt-10-970" (onTextChange)="onSearch($event)" *ngIf="ShowSearch"></app-search-bar>
+          <app-language-button [SelectLangaugeId]="DefaultLanguage" *ngIf="ShowLanguage" class="floatL u-ml-xs-20 mg-bt-10-970" (onLanguageChange)="handlelanguageChange($event)"></app-language-button>
+          <app-icon-title-button class="floatL u-ml-xs-20" Title="Add new" IconSource="../../assets/images/ic_plus_white.svg" (click)="onAddNewClick()" *ngIf="ShowAddNew && PagePermissions.addOpr" BackgroundColor="#3F3F3F"></app-icon-title-button>
+
+        </div>
+      </div>
+      <div class="TableBody u-width100">
+        <app-data-grid *ngIf="ViewMode == 'Items'"
+                       [Headers]="Headers"
+                       [Items]="Data"
+                       [Pages]="Pages"
+                       [FirstPage]="FirstPage"
+                       [LastPage]="LastPage"
+                       [GridEditMode]="GridEditMode"
+                       [GridEditErros]="GridEditErrors"
+                       (checkboxChange)="handleCheckboxChange($event)"
+                       (activeToggleChange)="handleactiveToggleChange($event)"
+                       (onrowClick)="handleRowCLick($event)"
+                       (onsortChange)="handleSortClick($event)"
+                       (selectAllChange)="handleSelectAll($event)"
+                       (onPageChange)="handlepageChange($event)"
+                       (onPageSizeChange)="handlePageSizeChange($event)"
+                       [PicturePath]="PicturePath"
+                       ></app-data-grid>
+
+        <div class="u-relative DivToPrint" *ngIf="ViewMode == 'Details'">
+          <form (ngSubmit)="save(createForm)" #createForm="ngForm" validate>
+            <div class="u-table u-width100">
+              <div class="u-tableCell">
+                <div class="Section u-mb-xs-20 floatL width100 " style="padding-bottom: 20px;">
+                  <div class="floatR display-flex-center">
+                    <div class="InputTitle u-mr-xs-10" style="margin-bottom: 0px;">Active</div>
+                    <mat-slide-toggle [checked]="contentDetails.active == 1 ? true : false" (change)="onActiveToggleChangeInDetails($event)"></mat-slide-toggle>
+                  </div>
+
+                </div>
+                <div class="Section u-mb-xs-20 floatL width100 ">
+                  <div *ngIf="!ShowItems" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                    <div class="InputTitle">Record ID</div>
+                    <input class="Input" [disabled]="true" [(ngModel)]="contentDetails.id"
+                           name="id" #id="ngModel" type="text">
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20" *ngIf="showTitle">
+                    <div class="InputTitle">Title* </div>
+                    <div [ngClass]="{'InputError': requiredTitle}">
+                      <input class="Input" [class.rtl]="isRTL" *ngIf="!ShowItems" [(ngModel)]="contentDetails.title"
+                             name="title" #title="ngModel" type="text" maxlength="50" required>
+                      <div *ngIf="ShowItems">
+                        {{ contentDetails.title }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20" *ngIf="showSubtitle">
+                    <div class="InputTitle">Subtitle* </div>
+                    <div [ngClass]="{'InputError': requiredSubtitle}">
+                      <input class="Input" [class.rtl]="isRTL" *ngIf="!ShowItems" [(ngModel)]="contentDetails.subtitle"
+                             name="subtitle" #subtitle="ngModel" type="text" maxlength="50" required>
+                      <div *ngIf="ShowItems">
+                        {{ contentDetails.subtitle }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20" *ngIf="showPriority">
+                    <div class="InputTitle">Priority* </div>
+                    <div [ngClass]="{'InputError': requiredPriority}">
+                      <input class="Input" [class.rtl]="isRTL" *ngIf="!ShowItems" [(ngModel)]="contentDetails.priority"
+                             name="priority" #priority="ngModel" type="number" maxlength="3" min="1" required>
+                      <div *ngIf="ShowItems">
+                        {{ contentDetails.priority }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20" *ngIf="showButtonTitle">
+                    <div class="InputTitle">Button Text* </div>
+                    <div [ngClass]="{'InputError': requiredButtonText}">
+                      <input class="Input" [class.rtl]="isRTL" *ngIf="!ShowItems" [(ngModel)]="contentDetails.buttonText"
+                             name="buttonText" #buttonText="ngModel" type="text" maxlength="50" required>
+                      <div *ngIf="ShowItems">
+                        {{ contentDetails.buttonText }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20" *ngIf="showButtonLink">
+                    <div class="InputTitle">Button Link* </div>
+                    <div [ngClass]="{'InputError': requiredButtonLink}">
+                      <input class="Input" [class.rtl]="isRTL" *ngIf="!ShowItems" [(ngModel)]="contentDetails.buttonLink"
+                             name="buttonLink" #buttonLink="ngModel" type="text" maxlength="50" required>
+                      <div *ngIf="ShowItems">
+                        {{ contentDetails.buttonLink }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="Section u-mb-xs-20 floatL width100 " *ngIf="showDescription">
+                  <div class="col-xs-12 floatL u-relative u-pb-xs-20">
+                    <div class="InputTitle">Description*<span class="errormessage SmallDesc " *ngIf="requiredDescription">Max length should be less than 3000 characters</span></div>
+
+                    <ckeditor [(ngModel)]="contentDetails.description"
+                              #myckeditor="ngModel"
+                              name="myckeditor"
+                              [config]="ckeConfig"
+                              debounce="500"
+                              [readonly]="ShowItems">
+                    </ckeditor>
+
+
+                  </div>
+
+                </div>
+                <div class="Section u-mb-xs-20 floatL width100" *ngIf="showPicture">
+                  <div class="col-xs-12 floatL u-relative">
+                    <div class="InputTitle">Picture*</div>
+                    <app-image-editor [SectionName]="Sectionname"
+                                      TagName="txtpicture"
+                                      (onFilesChange)="handleonFilesChange($event)"
+                                      [UploadedFiles]="PictureInfo"
+                                      [disabled]="ShowItems"
+                                      ></app-image-editor>
+
+                   </div>
+                </div>
+                <div *ngIf="!hideCreationBanner">
+                  <div class="Section u-mb-xs-20 floatL width100">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Creation date</div>
+                      <div class="Desc">{{CreationDate}}</div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Created by</div>
+                      <div class="Desc">{{CreatedBy}}</div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Modification date</div>
+                      <div class="Desc">{{ ModificationDate}}</div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Modified by</div>
+                      <div class="Desc">{{ModifiedBy}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="BottomActionsContainer" *ngIf="ShowCancelSave">
+              <div class="NormalDiv justify-end">
+                <button class="floatL u-mr-xs-20  GlobalButton u-marginAuto u-animateMe" type="submit" color="primary" *ngIf="PagePermissions.addOpr || PagePermissions.editOpr">Save</button>
+                <app-icon-title-button class="floatL" Title="Cancel" (click)="onCancel()" BackgroundColor="transparent" TextColor="#3F3F3F"></app-icon-title-button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

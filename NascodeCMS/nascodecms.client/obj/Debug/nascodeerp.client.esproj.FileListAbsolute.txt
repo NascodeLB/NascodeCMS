@@ -1,0 +1,2 @@
+C:\inetpub\wwwroot\NascodeERP\nascodeerp.client\obj\Debug\nascodeerp.client.esproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\NascodeInternalFinal\NascodeERP\nascodeerp.client\obj\Debug\nascodeerp.client.esproj.CoreCompileInputs.cache

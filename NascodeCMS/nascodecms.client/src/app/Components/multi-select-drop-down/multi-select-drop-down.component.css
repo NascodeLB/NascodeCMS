@@ -1,0 +1,108 @@
+.MultiSelectDropdownInput {
+  min-height: 38px;
+  padding: 8px 12px;
+  display: inline-block;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+
+.MultiSelectDropdownInputSelectedItem {
+  background-color: #E9ECF2;
+  border-radius: 10px;
+  padding: 4px 8px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  float: left;
+  text-transform: capitalize;
+}
+.MultiSelectDropdownInputSelectedItemTitle {
+  font-size: 12px;
+  line-height: 1.25;
+  color: #3F3F3F;
+}
+
+.ic_close {
+  background-image: url(../../../assets/images/ic_close.svg);
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 11px;
+  margin-left: 4px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.ic_multi_select_dropdown {
+  background-image: url(../../../assets/images/ic_multi_select_dropdown.svg);
+  background-repeat: no-repeat;
+  width: 12px;
+  height: 18px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+
+}
+.MultiSelectListContainer {
+  width: 100%;
+  margin-top: 2px;
+  border-radius: 12px;
+  background-color: white;
+  position: absolute;
+  z-index: 1000;
+  box-shadow: 0px 1px 3px 1px #D4D9E6;
+  padding: 15px 5px 5px 5px;
+}
+.ListContainerHeadSearchInput {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #E9ECF2;
+  padding-bottom: 5px;
+  text-transform: capitalize;
+  color: #00A2FF;
+}
+.MultiSelectListItem{
+    padding: 7px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+  .MultiSelectListItem:hover {
+    background-color: #E9ECF2;
+  }
+
+.InputPadding {
+  margin-bottom: 8px;
+  padding: 0px 8px;
+}
+.SearchResult {
+  color: #00A2FF;
+}
+.ListTitle{
+    padding: 5px 8px;
+}
+
+.ScrollContainer {
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 200px;
+  
+}
+
+
+/* This is a sample styling; adjust it according to your needs */
+  .ScrollContainer::-webkit-scrollbar {
+    width: 4px; /* Set the width of the scrollbar */
+  }
+
+  .ScrollContainer::-webkit-scrollbar-thumb {
+    background-color: #D4D9E6; /* Set the color of the thumb (the draggable part) */
+    border-radius: 2px; /* Set the border radius of the thumb */
+  }
+
+  .ScrollContainer::-webkit-scrollbar-track {
+    background-color: white; /* Set the color of the track (the non-draggable part) */
+  }

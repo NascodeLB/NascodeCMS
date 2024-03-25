@@ -1,0 +1,45 @@
+<div class=" u-relative">
+  <div class="InputTitle">{{Title}}</div>
+  <div [class.InputError]="Error">
+    <div class="Input MultiSelectDropdownInput" (click)="ShowList = true">
+      <div class="MultiSelectDropdownInputSelectedItem" *ngFor="let SelectedItem of SelectedItems">
+        <div class="MultiSelectDropdownInputSelectedItemTitle">{{ SelectedItem.title }}</div>
+        <div class="ic_close IWantAMouseOVerNowBut50" (click)="RemoveSelectedItem(SelectedItem.value)"></div>
+      </div>
+      
+      <div class="ic_multi_select_dropdown"></div>
+    </div>
+  
+  </div>
+  <div class="MultiSelectListContainer" *ngIf="ShowList">
+    <div class="u-relative">
+      <div class="ListContainerHead">
+        <div class="InputPadding">
+          <input type="text" class="ListContainerHeadSearchInput SmallDesc" placeholder="Search" (input)="handleSearch($event)" />
+
+        </div>
+
+        <div class="ScrollContainer">
+
+
+          <div class="SmallDesc MultiSelectListItem SearchResult" *ngFor="let item of SearchResultsItems" (click)="AddItem(item.value, item.title)">
+            {{ item.title }}
+          </div>
+         
+
+          <div class="SmallDescBold ListTitle">
+            Please select
+          </div>
+
+          <div class="SmallDesc MultiSelectListItem " *ngFor="let item of Items" (click)="AddItem(item.value, item.title)">
+            {{ item.title }}
+          </div>
+         
+        </div>
+      </div>
+    
+    </div>
+   
+  </div>
+
+</div>

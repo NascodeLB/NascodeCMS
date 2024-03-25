@@ -1,0 +1,48 @@
+.ic_traingle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid white;
+  position: absolute;
+  top: -9px;
+  right: 20px;
+}
+
+.LanguageDropdownContainer {
+  position: absolute;
+  top: 55px;
+  right: 0;
+ 
+  z-index: 100;
+}
+.LanguageList {
+  background-color: white;
+  width: 143px;
+  height: auto;
+  border-radius: 10px;
+  padding: 2px 12px;
+  box-shadow: 0px 3px 6px 1px #D4D9E6;
+  
+}
+
+.LanguageListItem {
+  font-family: 'bevietnam_regular';
+  font-size: 12px;
+  line-height: 1.25;
+  color: #3F3F3F;
+  padding: 8px 0px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.ic_checked{
+    background-image: url(../../../assets/images/ic_checked.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}

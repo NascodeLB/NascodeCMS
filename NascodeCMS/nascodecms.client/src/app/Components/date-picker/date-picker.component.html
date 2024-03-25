@@ -1,0 +1,10 @@
+<div class="DateContainer" (click)="picker.open()">
+  <input matInput [min]="minDate" [max]="maxDate" [formControl]="Date"
+         [matDatepicker]="picker" class="Input"
+         placeholder="Select date"
+               (dateChange)="addEvent($event)">
+
+  <div class="ic_datepicker" ></div>
+  <mat-datepicker #picker ></mat-datepicker>
+</div>
+

@@ -1,0 +1,7 @@
+<div class="PopUpContainer u-animateMe" [@fadeInOut]="Show ? 'show' : 'hide'">
+  <div class="ImageContainer">
+    <div class="ic_close IWantAMouseOVerNowBut50" (click)="Close()"></div>
+    <img [src]="ImageSrc" />
+    <div class="SmallDescBold display-flex-center">{{Title}}</div>
+  </div>
+</div>

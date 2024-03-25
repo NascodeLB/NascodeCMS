@@ -1,0 +1,275 @@
+
+<div class="ChangePermissionsBackground" *ngIf="showChangePermissions">
+  <div class="ChangePermissionsContainer">
+    <div class="ChangePermissionsHeader">
+      <div class="MainTile colorBlack">Change permission of</div>
+      <div class="u-mt-xs-20 floatL">
+        <input class="CheckBoxCostumizedNS2 Chkselectgrd" type="checkbox" id="chkselect1" (change)="updateAllPagesCheck($event)">
+        <label for="chkselect1"><span class="Checkboxstyle"></span>Manage Forms Access</label>
+      </div>
+      <div class="u-mt-xs-25 u-ml-xs-40 floatL">
+        <div class="InputTitle " style="margin-bottom:0px;">Allow/Deny User Access</div>
+      </div>
+    </div>
+    <div class="ChangePermissionsBody">
+      <div class="floatL">
+        <div class="ChangePermissionsPagesList">
+          <div class="u-mt-xs-15 u-ml-xs-30 overflowhidden" *ngFor="let item of PagesList">
+            <input class="CheckBoxCostumizedNS2 Chkselectgrd" type="checkbox" [checked]="ChangePermissionCheckAll" id="chkselect{{ item.title }}" (change)="updatePagesCheck(item.title)">
+            <label for="chkselect{{ item.title }}"><span class="Checkboxstyle"></span>{{ item.title }}</label>
+          </div>
+        </div>
+      </div>
+      <div class="floatL OperationList">
+        <div class="OperationRow">
+          <div class="SmallDesc"><span class="OpertationTitle">View</span>  Allow users to view data</div>
+          <mat-slide-toggle [checked]="ChangePermissionView" (change)="ChangePermissionView = !ChangePermissionView"></mat-slide-toggle>
+        </div>
+        <div class="OperationRow">
+          <div class="SmallDesc"><span class="OpertationTitle">Add</span>  Allow users to add new data</div>
+          <mat-slide-toggle [checked]="ChangePermissionAdd" (change)="ChangePermissionAdd = !ChangePermissionAdd"></mat-slide-toggle>
+        </div>
+        <div class="OperationRow">
+          <div class="SmallDesc"><span class="OpertationTitle">Delete</span>  Allow users to delete existing records</div>
+          <mat-slide-toggle [checked]="ChangePermissionDelete" (change)="ChangePermissionDelete = !ChangePermissionDelete"></mat-slide-toggle>
+        </div>
+        <div class="OperationRow">
+          <div class="SmallDesc"><span class="OpertationTitle">Clone</span>  Allow users to clone existing records</div>
+          <mat-slide-toggle [checked]="ChangePermissionClone" (change)="ChangePermissionClone = !ChangePermissionClone"></mat-slide-toggle>
+        </div>
+        <div class="OperationRow">
+          <div class="SmallDesc"><span class="OpertationTitle">Print</span>  Allow users to print records</div>
+          <mat-slide-toggle [checked]="ChangePermissionPrint" (change)="ChangePermissionPrint = !ChangePermissionPrint"></mat-slide-toggle>
+        </div>
+        <div class="OperationRow">
+          <div class="SmallDesc"><span class="OpertationTitle">Export</span>  Allow users to export existing records</div>
+          <mat-slide-toggle [checked]="ChangePermissionExport" (change)="ChangePermissionExport = !ChangePermissionExport"></mat-slide-toggle>
+        </div>
+        <div class="OperationRow">
+          <div class="SmallDesc"><span class="OpertationTitle">Edit</span>  Allow users to edit existing records</div>
+          <mat-slide-toggle [checked]="ChangePermissionEdit" (change)="ChangePermissionEdit = !ChangePermissionEdit"></mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+    <div class="ChangePermissionsFooter display-flex-center justify-space-between">
+      <app-icon-title-button Title="Cancel" BackgroundColor="transparent" TextColor="#3F3F3F" (click)="showChangePermissions = false"></app-icon-title-button>
+      <app-icon-title-button class="Savebtn" Title="Save" BackgroundColor="#3F3F3F" (click)="AddpagePermissions()"></app-icon-title-button>
+    </div>
+  </div>
+</div>
+<div class="NormalDiv">
+  <div class="PageContainer">
+    <div class="PageTitle">Users Groups</div>
+    <div class="u-ht-xs-20"></div>
+    <div class="TableContainer">
+      <div class="TableHeader u-width100">
+
+        <div class="TableTitle floatL display-flex-center u-pd-tb-13">
+          <div class="ic_back IWantAMouseOVerNowBut75 u-mr-xs-10 " *ngIf="ViewMode != 'Items'" (click)="goback()"></div>
+          {{ViewMode}} <span *ngIf="ViewMode == 'Items'" class="DescriptionMeduim ColorMyTitleBlack u-pl-xs-10 u-pl-xs-2"> {{TotalCount}} records</span>
+        </div>
+        <div class="floatR">
+          <app-icon-button class="floatL u-mr-xs-20" IconSource="../../assets/images/ic_clone.svg" (click)="onCloneCLick()" *ngIf="ShowClone && PagePermissions.cloneOpr"></app-icon-button>
+          <app-print-button class="floatL u-mr-xs-20" *ngIf="ShowPrint && PagePermissions.printOpr"></app-print-button>
+          <app-export-button class="floatL u-mr-xs-20" *ngIf="ShowExport && PagePermissions.exportOpr"></app-export-button>
+          <app-icon-button class="floatL u-mr-xs-20" IconSource="../../assets/images/ic_edit_black.svg" (click)="onEditCLick()" *ngIf="ShowEdit && PagePermissions.editOpr"></app-icon-button>
+          <app-icon-button class="floatL u-mr-xs-20" BackgroundColor="#F9E9EF" IconSource="../../assets/images/ic_delete_red.svg" (click)="onDeleteCLick()" *ngIf="ShowDelete && PagePermissions.deleteOpr"></app-icon-button>
+
+          <app-search-bar class="floatL u-mr-xs-20" (onTextChange)="onSearch($event)" *ngIf="ViewMode == 'Items'"></app-search-bar>
+
+          <app-icon-title-button class="floatL u-ml-xs-10" Title="Add new" IconSource="../../assets/images/ic_plus_white.svg" (click)="onAddNewClick()" *ngIf="ViewMode == 'Items' && PagePermissions.editOpr" BackgroundColor="#3F3F3F" ></app-icon-title-button>
+
+        </div>
+      </div>
+      <div class="TableBody u-width100">
+        <app-data-grid *ngIf="ViewMode == 'Items'"
+                       [Headers]="Headers"
+                       [Items]="Data"
+                       [Pages]="Pages"
+                       [FirstPage]="FirstPage"
+                       [LastPage]="LastPage"
+                       (onrowClick)="handleRowCLick($event)"
+                       (onsortChange)="handleSortClick($event)"
+                       (selectAllChange)="handleSelectAll($event)"
+                       (checkboxChange)="handleCheckboxChange($event)"
+                       (onPageChange)="handlepageChange($event)"
+                       (onPageSizeChange)="handlePageSizeChange($event)"></app-data-grid>
+
+        <div class="u-relative DivToPrint" *ngIf="ViewMode == 'Details'">
+          <form (ngSubmit)="save(createForm)" #createForm="ngForm" validate>
+            <div class="u-table u-width100">
+              <div class="u-tableCell">
+
+                <div class="Section u-mb-xs-20 floatL width100 ">
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                    <div class="InputTitle">Record ID</div>
+                    <input class="Input" [disabled]="ShowItems" [(ngModel)]="GroupDetails.id"
+                           name="id" #id="ngModel" type="text">
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                    <div class="InputTitle">Group Name</div>
+                    <div [ngClass]="{'InputError': requiredGroupName}">
+                      <input class="Input" [disabled]="ShowItems" [(ngModel)]="GroupDetails.name"
+                             name="bankName" #bankName="ngModel" type="text" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                    <div class="InputTitle">Super Admin</div>
+
+                    <input class="CheckBoxCostumizedNS2 "
+                           [disabled]="ShowItems"
+                           type="checkbox"
+                           id="chkselectSuperAdmin"
+                           [(ngModel)]="GroupDetails.isSuperAdmin"
+                           #isSuperAdmin="ngModel"
+                           [checked]="GroupDetails.isSuperAdmin"
+                           name="isSuperAdmin">
+                    <label for="chkselectSuperAdmin"><span class="Checkboxstyle"></span>set as Super admin</label>
+
+                  </div>
+                </div>
+
+                <div class="Section u-mb-xs-20 floatL width100 ">
+                  <div class="display-flex u-mb-xs-10">
+                    <div class="InputTitle floatL u-ml-xs-15" style="margin-bottom: 0px !important;">
+                      Forms
+                    </div>
+                    <div class="floatR">
+                      <app-icon-title-button *ngIf="!ShowItems" class="floatL u-mr-xs-10" Title="Add new" IconSource="../../assets/images/ic_plus_white.svg" BackgroundColor="#3F3F3F" (click)="showChangePermissions = !showChangePermissions"></app-icon-title-button>
+                    </div>
+                  </div>
+                  <table class="GridContainer" style="background-color: white; border-radius: 12px; margin-bottom: 20px;">
+
+                    <tr class="GridRow TableHead">
+                      <td class="GridCell GridHead">
+                        <div class="u-relative u-inlineBlock">
+                          <span class="MyTitleHead">File name</span>
+                        </div>
+                      </td>
+                      <td class="GridCell GridHead">
+                        <div class="u-relative u-inlineBlock">
+                          <span class="MyTitleHead">Add</span>
+                        </div>
+                      </td>
+                      <td class="GridCell GridHead">
+                        <div class="u-relative u-inlineBlock">
+                          <span class="MyTitleHead">Edit</span>
+                        </div>
+                      </td>
+                      <td class="GridCell GridHead">
+                        <div class="u-relative u-inlineBlock">
+                          <span class="MyTitleHead">Delete</span>
+                        </div>
+                      </td>
+                      <td class="GridCell GridHead">
+                        <div class="u-relative u-inlineBlock">
+                          <span class="MyTitleHead">View</span>
+                        </div>
+                      </td>
+                      <td class="GridCell GridHead">
+                        <div class="u-relative u-inlineBlock">
+                          <span class="MyTitleHead">Clone</span>
+                        </div>
+                      </td>
+                      <td class="GridCell GridHead">
+                        <div class="u-relative u-inlineBlock">
+                          <span class="MyTitleHead">Export</span>
+                        </div>
+                      </td>
+                      <td class="GridCell GridHead">
+                        <div class="u-relative u-inlineBlock">
+                          <span class="MyTitleHead">Print</span>
+                        </div>
+                      </td>
+                      <td class="GridCell GridHead">
+                        <div class="u-relative u-inlineBlock">
+                          <span class="MyTitleHead"></span>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="GridRow GridResults" *ngFor="let item of Permissions">
+                      <td class="Gridcell GridContentCell">
+                        {{ item.name }}
+                      </td>
+                      <td class="Gridcell u-pl-xs-20">
+                        <input class="CheckBoxCostumizedNS2 Chkselectgrd"  [disabled]="ShowItems" type="checkbox" id="chkselect{{ item.id}}addOpr" [checked]="item.addOpr" (change)="changepermissionstatus($event,'addOpr', item.id)">
+                        <label for="chkselect{{ item.id }}addOpr"><span class="Checkboxstyle"></span></label>
+                      </td>
+                      <td class="Gridcell u-pl-xs-20">
+                        <input class="CheckBoxCostumizedNS2 Chkselectgrd"  [disabled]="ShowItems" type="checkbox" id="chkselect{{ item.id}}editOpr" [checked]="item.editOpr" (change)="changepermissionstatus($event,'editOpr', item.id)">
+                        <label for="chkselect{{ item.id}}editOpr"><span class="Checkboxstyle"></span></label>
+                      </td>
+                      <td class="Gridcell u-pl-xs-20">
+                        <input class="CheckBoxCostumizedNS2 Chkselectgrd"  [disabled]="ShowItems" type="checkbox" id="chkselect{{ item.id}}deleteOpr" [checked]="item.deleteOpr" (change)="changepermissionstatus($event,'deleteOpr', item.id)">
+                        <label for="chkselect{{ item.id}}deleteOpr"><span class="Checkboxstyle"></span></label>
+                      </td>
+                      <td class="Gridcell u-pl-xs-20">
+                        <input class="CheckBoxCostumizedNS2 Chkselectgrd"  [disabled]="ShowItems" type="checkbox" id="chkselect{{ item.id}}viewOpr" [checked]="item.viewOpr" (change)="changepermissionstatus($event,'viewOpr', item.id)">
+                        <label for="chkselect{{ item.id}}viewOpr"><span class="Checkboxstyle"></span></label>
+                      </td>
+                      <td class="Gridcell u-pl-xs-20">
+                        <input class="CheckBoxCostumizedNS2 Chkselectgrd"  [disabled]="ShowItems" type="checkbox" id="chkselect{{ item.id}}cloneOpr" [checked]="item.cloneOpr" (change)="changepermissionstatus($event,'cloneOpr', item.id)">
+                        <label for="chkselect{{ item.id}}cloneOpr"><span class="Checkboxstyle"></span></label>
+                      </td>
+                      <td class="Gridcell u-pl-xs-20">
+                        <input class="CheckBoxCostumizedNS2 Chkselectgrd"  [disabled]="ShowItems" type="checkbox" id="chkselect{{ item.id}}exportOpr" [checked]="item.exportOpr" (change)="changepermissionstatus($event,'exportOpr', item.id)">
+                        <label for="chkselect{{ item.id}}exportOpr"><span class="Checkboxstyle"></span></label>
+                      </td>
+                      <td class="Gridcell u-pl-xs-20">
+                        <input class="CheckBoxCostumizedNS2 Chkselectgrd"  [disabled]="ShowItems" type="checkbox" id="chkselect{{ item.id}}printOpr" [checked]="item.printOpr" (change)="changepermissionstatus($event,'printOpr', item.id)">
+                        <label for="chkselect{{ item.id}}printOpr"><span class="Checkboxstyle"></span></label>
+                      </td>
+                      <td class="Gridcell RemoveCell">
+                        <div class="floatR">
+                          <div class="ic_delete IWantAMouseOVerNowBut50Inv" (click)="deletePermission(item.id)"  *ngIf="!ShowItems"></div>
+
+                        </div>
+                      </td>
+                    </tr>
+
+
+
+                  </table>
+
+                </div>
+                <div *ngIf="!hideCreationBanner">
+                  <div class="Section u-mb-xs-20 floatL width100">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Creation date</div>
+                      <div class="Desc">{{CreationDate}}</div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Created by</div>
+                      <div class="Desc">{{CreatedBy}}</div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Modification date</div>
+                      <div class="Desc">{{ModifiedBy}}</div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Modified by</div>
+                      <div class="Desc">{{ModificationDate}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="BottomActionsContainer" *ngIf="ShowCancelSave">
+              <div class="NormalDiv justify-end">
+                <button class="floatL u-mr-xs-20  GlobalButton u-marginAuto u-animateMe" type="submit" color="primary">Save</button>
+                <app-icon-title-button class="floatL" Title="Cancel" (click)="onCancel()" BackgroundColor="transparent" TextColor="#3F3F3F"></app-icon-title-button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

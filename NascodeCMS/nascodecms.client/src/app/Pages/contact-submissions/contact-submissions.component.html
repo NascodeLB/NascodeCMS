@@ -1,0 +1,113 @@
+<div class="FiltersContainer" *ngIf="ShowFiltersPopup">
+  <div class="display-flex justify-center u-padding20">
+    <div class="PageTitle">Filters</div>
+    <div class="display-flex">
+      <div class="clearbutton u-mr-xs-20 IWantAMouseOVerNowBut75" (click)="clearfilters()">Clear</div>
+      <app-icon-button IconSource="../../assets/images/ic_close.svg" (click)="ShowFiltersPopup = !ShowFiltersPopup"></app-icon-button>
+    </div>
+   </div>
+  <div class="FiltersItemslist">
+    <div class="u-mb-xs-15">
+      <div class="InputTitle">Date From</div>
+      <app-date-picker [selectedDate]="fromdate" (onDateChange)="handlefromdatechange($event)"></app-date-picker>
+    </div>
+    <div class="u-mb-xs-15">
+      <div class="InputTitle">Date To</div>
+      <app-date-picker [selectedDate]="todate" (onDateChange)="handletodatechange($event)"></app-date-picker>
+    </div>
+  </div>
+</div>
+<div class="NormalDiv">
+  <div class="PageContainer">
+    <div class="PageTitle">Contact Submissions</div>
+    <div class="u-ht-xs-20"></div>
+    <div class="TableContainer">
+      <div class="TableHeader u-width100">
+
+        <div class="TableTitle floatL display-flex-center u-pd-tb-13">
+          <div class="ic_back IWantAMouseOVerNowBut75 u-mr-xs-10" *ngIf="ViewMode != 'Items'" (click)="goback()"></div>
+          {{ViewMode}} <span *ngIf="ViewMode == 'Items'" class="DescriptionMeduim ColorMyTitleBlack u-pl-xs-10 u-pl-xs-2">{{ HeadMessage}}</span>
+
+
+        </div>
+        <div class="floatR">
+          <app-icon-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="ShowFilter" IconSource="../../assets/images/ic_filter.svg" (click)="ShowFiltersPopup = true"></app-icon-button>
+          <app-print-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="PagePermissions.printOpr"></app-print-button>
+          <app-export-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="ShowExport && PagePermissions.exportOpr"></app-export-button>
+          <app-search-bar class="floatL u-ml-xs-20 mg-bt-10-970" (onTextChange)="onSearch($event)" *ngIf="ShowSearch"></app-search-bar>
+          <app-language-button [SelectLangaugeId]="DefaultLanguage" *ngIf="ShowLanguage" class="floatL u-ml-xs-20 mg-bt-10-970" (onLanguageChange)="handlelanguageChange($event)"></app-language-button>
+
+        </div>
+      </div>
+      <div class="TableBody u-width100">
+        <app-data-grid *ngIf="ViewMode == 'Items'"
+                       [Headers]="Headers"
+                       [Items]="Data"
+                       [Pages]="Pages"
+                       [FirstPage]="FirstPage"
+                       [LastPage]="LastPage"
+                       (checkboxChange)="handleCheckboxChange($event)"
+                       (onrowClick)="handleRowCLick($event)"
+                       (onsortChange)="handleSortClick($event)"
+                       (selectAllChange)="handleSelectAll($event)"
+                       (onPageChange)="handlepageChange($event)"
+                       (onPageSizeChange)="handlePageSizeChange($event)"></app-data-grid>
+
+        <div class="u-relative DivToPrint" *ngIf="ViewMode == 'Details'">
+          <div class="u-table u-width100">
+            <div class="u-tableCell">
+
+              <div class="Section u-mb-xs-20 floatL width100 ">
+                <div *ngIf="!ShowItems" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                  <div class="InputTitle">Record ID</div>
+                  {{ contactDetails.id }}
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                  <div class="InputTitle">Prefered Language </div>
+                  {{ contactDetails.languageName }}
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                  <div class="InputTitle">Full Name </div>
+                  {{ contactDetails.fullName }}
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                  <div class="InputTitle">Email</div>
+                  {{ contactDetails.email }}
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                  <div class="InputTitle">Mobile </div>
+                  {{ contactDetails.mobile }}
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                  <div class="InputTitle">Company Name </div>
+                  {{ contactDetails.companyName }}
+                </div>
+                <div class=" col-xs-12 floatL u-relative u-mb-xs-20">
+                  <div class="InputTitle">Message </div>
+                  {{ contactDetails.message }}
+                </div>
+              </div>
+              <div>
+                <div class="Section u-mb-xs-20 floatL width100">
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                    <div class="InputTitle">Creation date</div>
+                    <div class="Desc">{{CreationDate}}</div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

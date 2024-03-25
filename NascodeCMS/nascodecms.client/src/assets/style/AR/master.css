@@ -1,0 +1,325 @@
+/*#region Master */
+
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Almarai', sans-serif;
+}
+
+.presentSwiper {
+  direction: rtl !important;
+  background-color: #050809;
+}
+
+.DirLTR {
+  direction: ltr;
+}
+
+.TxtR {
+  text-align: right;
+}
+
+.rtlDirection {
+  direction: rtl;
+}
+
+.textalignL {
+  text-align: right;
+}
+
+.textalignR {
+  text-align: left;
+}
+
+.textalignC {
+  text-align: center;
+}
+
+.ql-align-center {
+  text-align: center !important;
+}
+
+.valignT {
+  vertical-align: top;
+}
+
+.valignB {
+  vertical-align: bottom;
+}
+
+.valignM {
+  vertical-align: middle;
+}
+
+.floatL {
+  float: right;
+}
+
+.floatR {
+  float: left;
+}
+
+.link {
+  text-decoration: underline;
+  color: blue;
+}
+
+.p-toast-top-right {
+  left: 20px;
+  right: auto;
+}
+
+.p-component {
+  font-family: 'Almarai', sans-serif;
+}
+
+.p-toast .p-toast-message .p-toast-message-content .p-toast-message-text {
+  margin: 0 1rem 0 0;
+}
+/*#endregion */
+/*#region Preloader */
+.BackPreloader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 111111;
+}
+
+.application-loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 1000000 !important;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+}
+
+.application-loading-box {
+  width: 85px;
+  height: 52px;
+  margin: 5px;
+  text-align: center;
+  position: relative;
+}
+
+
+
+.AMPreloaderAnimation {
+  position: absolute;
+  height: 100px;
+  width: 65px;
+  opacity: 0;
+  left: -50px;
+  top: 0;
+  z-index: 2;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../../images/Preloader.png);
+  -moz-animation: AMLoader 2s ease-in-out infinite;
+  -o-animation: AMLoader 2s ease-in-out infinite;
+  -webkit-animation: AMLoader 2s ease-in-out infinite;
+  animation: AMLoader 2s ease-in-out infinite;
+}
+
+@keyframes AMLoader {
+  0% {
+    opacity: 1;
+    left: -50px;
+  }
+
+  80% {
+    opacity: 1;
+    left: 100%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 100%;
+  }
+}
+
+@-moz-keyframes AMLoader {
+  0% {
+    opacity: 1;
+    left: -50px;
+  }
+
+  80% {
+    opacity: 1;
+    left: 100%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 100%;
+  }
+}
+
+@-o-keyframes AMLoader {
+  0% {
+    opacity: 1;
+    left: -50px;
+  }
+
+  80% {
+    opacity: 1;
+    left: 100%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 100%;
+  }
+}
+
+@-ms-keyframes AMLoader {
+  0% {
+    opacity: 1;
+    left: -50px;
+  }
+
+  80% {
+    opacity: 1;
+    left: 100%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes AMLoader {
+  0% {
+    opacity: 1;
+    left: -50px;
+  }
+
+  80% {
+    opacity: 1;
+    left: 100%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 100%;
+  }
+}
+
+/*#endregion */
+.warning {
+  font-size: 35px;
+  font-weight: 300;
+  color: #E9823B;
+  margin-right: 9px;
+}
+
+
+.whiteC ::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.whiteC :-moz-placeholder { /* Firefox 18- */
+  color: #fff;
+}
+
+.whiteC ::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+
+.whiteC :-ms-input-placeholder {
+  color: #fff;
+}
+
+.AbsoPreloader {
+  top: 8px;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 5px;
+  background-image: url(../../images/loader.GIF);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px;
+  position: absolute;
+}
+
+.longDesc a {
+  display: inline-block;
+}
+
+.longDesc p {
+  display: block;
+}
+
+.longDesc img {
+  display: initial !important;
+}
+
+.grecaptcha-badge{
+    text-align:left;
+    direction:ltr;
+}
+.abso50 {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  min-width: 50%;
+}
+
+/*.longDesc p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.longDesc ul li { 
+  line-height: 1.6;
+}*/
+
+
+.longDesc p, .smallDesc p, .AboutDesc p, .sub1 p {
+  margin: 10px 0;
+  line-height: 1.6;
+  display: block;
+}
+
+.longDesc ul, .smallDesc ul, .AboutDesc ul, .SectionDescription ul, .sub1 ul {
+  padding: 0 40px;
+}
+
+
+  .longDesc ul li, .smallDesc ul li, .AboutDesc ul li, .SectionDescription ul li, .sub1 ul li {
+    line-height: 1.6;
+  }
+
+
+.SectionDescription p {
+  display: block;
+}
+
+.calendar1 p-calendar {
+  height: 50px;
+  margin: 8px 0;
+}
+.calendar1  {
+  height: 66px; 
+}
+.widthicon1 {
+  width: 46px;
+}
+
+.widthicon2 {
+  width: calc(100% - 46px);
+  padding-left: 25px;
+}
+.iti--allow-dropdown {
+  margin: 8px 0;
+  width: 100%;
+}

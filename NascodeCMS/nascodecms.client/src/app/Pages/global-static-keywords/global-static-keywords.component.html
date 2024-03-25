@@ -1,0 +1,90 @@
+
+<div class="NormalDiv">
+  <div class="PageContainer">
+    <div class=" u-width100 display-flex justify-space-between">
+      <div class="PageTitle">{{PageTitle}}</div>
+      <app-language-button [SelectLangaugeId]="DefaultLanguage" class="floatL  mg-bt-10-970" (onLanguageChange)="handlelanguageChange($event)" *ngIf="ViewMode=='Edit'"></app-language-button>
+      <app-icon-button class="floatL mg-bt-10-970" IconSource="../../assets/images/ic_edit_black.svg" (click)="onEditCLick()" *ngIf="ViewMode == 'View' && PagePermissions.editOpr"></app-icon-button>
+
+    </div>
+
+    <div class="u-ht-xs-20"></div>
+    <div class="TableContainer u-mb-xs-20 " *ngFor="let section of Sections">
+      <div class="TableHeader u-width100">
+        <div class="TableTitle floatL display-flex-center u-pd-tb-13 u">
+          {{ section }}   <mat-slide-toggle class="u-ml-xs-10" [checked]="true" (change)="handletoggleSectionChange(section)"></mat-slide-toggle>
+        </div>
+      </div>
+      <div id="section-{{section}}" class="TableBody u-width100 AnimatedSection">
+        <div class="Section width100 u-padding20 u-mb-xs-20">
+          <ng-container *ngFor="let data of getFieldsInSection(section)">
+
+            <div class="u-width100" *ngIf="data.type == 'textbox'">
+              <div class="InputTitle">{{ data.title }}</div>
+              <input class="Input u-mb-xs-10" [class.rtl]="isRTL" type="text" [disabled]="Disabled" [value]="data.value" [attr.maxlength]='data.maxLength' required (input)="hanldeTextboxInputChange($event, data.code)">
+            </div>
+            <div class="u-width100" *ngIf="data.type == 'longdesc'">
+              <div class="InputTitle">{{ data.title }} <span class="errormessage SmallDesc " *ngIf="data.fielderror">Max length should be less than {{ data.maxLength }} characters</span></div>
+              <div class="u-mb-xs-10">
+                <ckeditor [(ngModel)]="data.value"
+                          #myckeditor="ngModel"
+                          data-code="data.code"
+                          [config]="ckeConfig"
+                          [readonly]="Disabled"
+                          debounce="500">
+                </ckeditor>
+              </div>
+            </div>
+            <div class="u-width100" *ngIf="data.type == 'picture'">
+              <div class="InputTitle">{{ data.title }}</div>
+              <app-image-editor SectionName="StaticKeywords{{PageTitle}}{{data.code}}"
+                                TagName="txtPicture"
+                                [disabled]="Disabled"
+                                (onFilesChange)="handleonFilesChange($event, data.code)"
+                                [UploadedFiles]="data.value ? [data.value] : []"
+                                ></app-image-editor>
+            </div>
+          </ng-container>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="TableContainer " *ngIf="Data.length > 0">
+      <div class="TableHeader u-width100">
+       
+          <div class="Section  floatL width100">
+          
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+              <div class="InputTitle">Modification date</div>
+              <div class="Desc">{{ getlocaldate(Data[0].modificationDate!)}}</div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+              <div class="InputTitle">Modified by</div>
+              <div class="Desc">{{Data[0].modifiedByName}}</div>
+            </div>
+          
+        </div>
+        </div>
+      </div>
+
+        <div class="BottomActionsContainer"  *ngIf="ViewMode == 'Edit'">
+          <div class="NormalDiv justify-end">
+            <button class="floatR u-mr-xs-20  GlobalButton IWantAMouseOVerNowBut75 " (click)="save()">Save</button>
+            <app-icon-title-button class="floatL" Title="Cancel" (click)="onCancel()" BackgroundColor="transparent" TextColor="#3F3F3F"></app-icon-title-button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+

@@ -1,0 +1,12 @@
+.Button {
+  border-radius: 12px;
+  -webkit-border-radius: 12px; /* for old Chrome and Safari */
+  -moz-border-radius: 12px;
+  background-color: #F4F5F8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 42px;
+  cursor: pointer;
+}

@@ -1,0 +1,130 @@
+<div class=" textalignL loginbg">
+  <div class=" LoginLeftSide" style="background: linear-gradient( rgba(65,65,65, 0.5),rgba(65,65,65, 0.5) ),url('{{MyBg}}'); background-size:cover; ">
+    <div class="Left_LoginContainer u-centerMe">
+      <div class="loginText">
+        <div class="MainTile">
+          <span style="color:#CE2F66">Welcome to</span> CUFEX.
+        </div>
+        <div class="LargeTile u-pt-xs-25">
+          Enterprise
+        </div>
+        <div class="LargeTile">
+          Resource Planning 
+        </div>
+        <div class="MainTileNotBold u-pt-xs-35">
+          Responsive, fast and trendy applications.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="LoginUpperRight">
+    <img src="../../../assets/images/Cufeximages/LoginUpperRight.svg" />
+  </div>
+  <div class="LoginUpperLeft">
+    <img src="../../../assets/images/Cufeximages/LoginUpperleft.svg" />
+  </div>
+  <div class="LoginLowerRight">
+    <img src="../../../assets/images/Cufeximages/LoginLowerRight.svg" />
+  </div>
+  <div class="LoginCard u-centerMe">
+    <div class="u-pt-xs-25 u-relative u-width100 u-height100">
+      <div class="u-centerMeWidth textalignC u-Winherit">
+
+        <img src="../../../assets/images/Cufeximages/LoginLogo.png" class="u-marginAuto u-pt-xs-15" />
+
+        <div class=" u-pt-xs-25 MainTile ColorMyTitleBlack ">
+          {{LoginSentence}}
+        </div>
+        <div *ngIf="!(shouldDisplayVerifyContent() || shouldDisplayNewContent())">
+          <div *ngIf="!shouldShowResetDiv">
+            <div class="Description u-pt-xs-20"
+                 [class.ColorMyTitleBlack]="!shouldChangeColor"
+                 [class.ColorMyTitleRed]="shouldChangeColor">
+              {{ErrorMsg}}
+            </div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <input class="loginBox" [class.input-focused]="isEmailFocused"
+                     (focus)="isEmailFocused = true"
+                     (blur)="isEmailFocused = false"
+                     type="text" placeholder="Username" formControlName="username" maxlength="100">
+
+              <input class="loginBox" [class.input-focused]="isPasswordFocused"
+                     (focus)="isPasswordFocused = true"
+                     (blur)="isPasswordFocused = false"
+                     type="password" placeholder="Password" formControlName="password" maxlength="300">
+
+              <div class="u-ht-xs-20"></div>
+              <div class="u-relative u-width100">
+                <button class="MyLoginButton u-marginAuto u-animateMe" type="submit" color="primary">Sign In </button>
+              </div>
+            </form>
+            <div class="Description ColorMyTitleBlack u-pt-xs-30">
+              Forgot password? <button (click)="toggleDivVisibility()" class="noBoardernoBackground u-underline DescriptionMeduim ColorMyTitleRed u-pointer u-inline">Reset</button>
+            </div>
+          </div>
+          <div *ngIf="shouldShowResetDiv">
+            <div class="Description u-pt-xs-20 ColorMyTitleBlack">
+              Enter your email and choose a new password
+            </div>
+            <form [formGroup]="form4" (ngSubmit)="onVerifySubmitRequest()">
+              <input class="loginBox" [class.input-focused]="isEmailFocused"
+                     (focus)="isEmailFocused = true"
+                     (blur)="isEmailFocused = false"
+                     type="email" placeholder="Email" formControlName="email" maxlength="100">
+
+              <div class="u-ht-xs-30 u-ht-xs-2"></div>
+              <div class="u-relative u-width100">
+                <button class="MyLoginButton u-marginAuto u-animateMe" type="submit" color="primary" [disabled]="!form4.valid">Send code</button>
+
+              </div>
+            </form>
+            <div class="Description ColorMyTitleBlack u-pt-xs-30">
+              Back to <button (click)="toggleDivVisibility()" class="noBoardernoBackground u-underline DescriptionMeduim ColorMyTitleRed u-pointer u-inline">Login</button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="shouldDisplayVerifyContent()">
+          <div class="Description u-pt-xs-20"
+               [class.ColorMyTitleBlack]="!shouldChangeColor"
+               [class.ColorMyTitleRed]="shouldChangeColor">
+            Enter Verification Code
+          </div>
+          <form [formGroup]="form2" (ngSubmit)="onVerifyCode()">
+            <input class="loginBox" [class.input-focused]="isEmailFocused"
+                   (focus)="isEmailFocused = true"
+                   (blur)="isEmailFocused = false"
+                   type="text" placeholder="Verification Code" formControlName="ResetCode" maxlength="8">
+
+            <div class="u-ht-xs-20"></div>
+            <div class="u-relative u-width100">
+              <button class="MyLoginButton u-marginAuto u-animateMe" type="submit" color="primary" [disabled]="!form2.valid">Verify</button>
+            </div>
+          </form>
+        </div>
+        <div *ngIf="shouldDisplayNewContent()">
+          <div class="Description u-pt-xs-20"
+               [class.ColorMyTitleBlack]="!shouldChangeColor"
+               [class.ColorMyTitleRed]="shouldChangeColor">
+            Enter New Password
+          </div>
+          <form [formGroup]="form3" (ngSubmit)="onNewPasswordSubmit()">
+            <input class="loginBox" [class.input-focused]="isEmailFocused"
+                   (focus)="isEmailFocused = true"
+                   (blur)="isEmailFocused = false"
+                   type="password" placeholder="New Password" formControlName="password" maxlength="300" required>
+            <input class="loginBox" [class.input-focused]="isPasswordFocused"
+                   (focus)="isPasswordFocused = true"
+                   (blur)="isPasswordFocused = false"
+                   type="password" placeholder="Confirm Password" formControlName="confirmpassword" maxlength="300" required>
+            <div class="u-ht-xs-20"></div>
+            <div class="u-relative u-width100">
+              <button class="MyLoginButton u-marginAuto u-animateMe" type="submit" color="primary" [disabled]="!form3.valid">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

@@ -1,0 +1,42 @@
+<div class="u-relative u-width100">
+  <div class="SmallDesc u-mb-xs-10">{{imageLabel}}</div>
+
+  <div class="u-table u-width100 u-mb-xs-20">
+    <div class="u-tableCell">
+      <div class="floatL col-lg-3 col-md-3 col-sm-6 col-xs-12 u-padding0" *ngIf="UploadedFiles.length > 0 && baseUrl != ''">
+        <div class="u-relative">
+          <img [src]="baseUrl.concat(UploadedFiles[0])" alt="" class="MainEditorImage" (click)="PreviewImage(baseUrl.concat(UploadedFiles[0]),UploadedFiles[0])" />
+          <div class="ic_delete IWantAMouseOVerNowBut75Inv" (click)="deleteItem(UploadedFiles[0])" *ngIf="!disabled"></div>
+        </div>
+       
+      </div>
+      <div class="floatL col-lg-9 col-md-9 col-sm-6 col-xs-12 " [class.u-padding0]="UploadedFiles.length == 0" >
+        <div class="floatL u-width100">
+          <ng-container *ngFor="let image of UploadedFiles; let i = index">
+            <div class="floatL" *ngIf="i !== 0 && baseUrl != ''">
+              <div class="u-relative">
+                <img class="SmallEditorImage "  [src]="baseUrl.concat(image)" (click)="PreviewImage(baseUrl.concat(image),image)" />
+                <div class="ic_delete right20 IWantAMouseOVerNowBut75Inv" (click)="deleteItem(image)" *ngIf="!disabled"></div>
+              </div>
+            </div>
+          </ng-container>
+
+          <div class="floatL">
+
+            <div class="UploadButton IWantAMouseOVerNowBut50" (click)="triggerFileInputClick()" *ngIf="!disabled">
+              <div class="ic_upload u-mb-xs-5"></div>
+              <div class="SmallDesc colorblue">Upload image</div>
+            </div>
+            <input hidden #fileInput type="file" (change)="fileChangeHandler($event)">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-image-previwer [ImageSrc]="PreviewImgSrc"
+                    [Title]="PreviewImageTitle"
+                    [Show]="PreviewShow"
+                    (onShowChange)="PreviewShow = !PreviewShow"
+                    ></app-image-previwer>

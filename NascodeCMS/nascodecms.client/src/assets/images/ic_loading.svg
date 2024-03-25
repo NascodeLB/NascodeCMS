@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="542.382" height="323.067" viewBox="0 0 542.382 323.067">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_43" data-name="Path 43" d="M8.218,0H534.164c4.539,0,8.218,4.924,8.218,11V312.069c0,6.074-3.679,11-8.218,11H8.218c-4.539,0-8.218-4.924-8.218-11V11C0,4.924,3.679,0,8.218,0Z" transform="translate(495.333 1757.732)" fill="#fff"/>
+    </clipPath>
+    <filter id="Rectangle_22" x="267.191" y="64.015" width="154.27" height="79.533" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#dcd4e6" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_25" x="273.265" y="82.765" width="142.915" height="23.282" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-color="#dcd4e6" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_26" x="273.265" y="82.765" width="101.981" height="23.282" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-color="#dcd4e6" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_25-2" x="273.265" y="97.026" width="142.915" height="23.282" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-4"/>
+      <feFlood flood-color="#dcd4e6" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_26-2" x="273.265" y="97.026" width="68.969" height="23.282" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-5"/>
+      <feFlood flood-color="#dcd4e6" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_25-3" x="273.265" y="111.287" width="142.915" height="23.282" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-6"/>
+      <feFlood flood-color="#dcd4e6" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_26-3" x="273.265" y="111.287" width="142.915" height="23.282" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-7"/>
+      <feFlood flood-color="#dcd4e6" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-7"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_21406" data-name="Group 21406" transform="translate(-465.809 -334.985)">
+    <g id="Group_21402" data-name="Group 21402">
+      <g id="Mask_Group_2" data-name="Mask Group 2" transform="translate(-29.524 -1422.746)" opacity="0.22" clip-path="url(#clip-path)">
+        <g id="web-video-content" transform="translate(552.489 1757.732)">
+          <path id="Path_32" data-name="Path 32" d="M415.818,154.121v239.5a22.273,22.273,0,0,1-22.273,22.28H81.635a22.273,22.273,0,0,1-22.273-22.273V154.115h356.45Z" transform="translate(-23.758 -92.834)" fill="#e9edf4"/>
+          <path id="Path_33" data-name="Path 33" d="M415.818,141.134V102.126a22.273,22.273,0,0,0-22.273-22.28H81.635a22.273,22.273,0,0,0-22.273,22.273v39.015h356.45Z" transform="translate(-23.758 -79.846)" fill="#8cc2fe"/>
+          <circle id="Ellipse_8" data-name="Ellipse 8" cx="12.581" cy="12.581" r="12.581" transform="translate(64.645 18.066)" fill="#4e99ff"/>
+          <circle id="Ellipse_9" data-name="Ellipse 9" cx="12.581" cy="12.581" r="12.581" transform="translate(104.944 18.066)" fill="#4e99ff"/>
+          <circle id="Ellipse_10" data-name="Ellipse 10" cx="12.581" cy="12.581" r="12.581" transform="translate(145.243 18.066)" fill="#4e99ff"/>
+          <path id="Path_34" data-name="Path 34" d="M410.267,123.565H290.521a8.354,8.354,0,1,1,0-16.7H410.267a8.354,8.354,0,1,1,0,16.708Z" transform="translate(-62.68 -84.57)" fill="#4e99ff"/>
+          <path id="Path_35" data-name="Path 35" d="M126.9,204.59v68.063a14.969,14.969,0,0,1-14.969,14.962H31.2a14.969,14.969,0,0,1-14.969-14.962V204.59a14.969,14.969,0,0,1,14.962-14.962h80.738A14.969,14.969,0,0,1,126.9,204.59Z" transform="translate(-16.215 -99.044)" fill="#76bdff"/>
+          <path id="Path_36" data-name="Path 36" d="M133.947,267.331v14.521a14.969,14.969,0,0,1-14.969,14.969h-62.4L86.5,260.228l11.223-13.692a12.274,12.274,0,0,1,18.929-.08l17.29,20.882Z" transform="translate(-23.27 -108.209)" fill="#9ce843"/>
+          <path id="Path_37" data-name="Path 37" d="M109.753,294.736H31.181a15.009,15.009,0,0,1-14.969-14.976V264.945l24.768-30.3a12.22,12.22,0,0,1,18.929-.08L79.44,258.136l30.313,36.587Z" transform="translate(-16.212 -106.124)" fill="#9ce843"/>
+          <path id="Path_38" data-name="Path 38" d="M111.43,215.536a14.046,14.046,0,1,1-4.114-9.959A14.1,14.1,0,0,1,111.43,215.536Z" transform="translate(-27.943 -101.114)" fill="#ffc90d"/>
+          <path id="Path_42" data-name="Path 42" d="M399.723,216.2H156.993a5.016,5.016,0,1,1,0-10.033h242.73a5.016,5.016,0,1,1,0,10.033ZM366.28,250.4H156.993a5.016,5.016,0,0,1,0-10.033H366.28a5.016,5.016,0,1,1,0,10.033Zm-89.922,31.57H156.993a5.016,5.016,0,0,1,0-10.033H276.358a5.016,5.016,0,1,1,0,10.033Zm17.283,50.165H82.228a5.016,5.016,0,1,1,0-10.033H293.641a5.016,5.016,0,1,1,0,10.033Zm0,32.881H82.228a5.016,5.016,0,1,1,0-10.033H293.641a5.016,5.016,0,0,1,0,10.033Zm102,32.881H82.228a5.016,5.016,0,1,1,0-10.033H395.643a5.016,5.016,0,0,1,0,10.033Z" transform="translate(-26.88 -101.936)" fill="#d2dbea"/>
+        </g>
+      </g>
+      <g id="Group_21039" data-name="Group 21039" transform="translate(816.338 462.516)">
+        <g id="Group_21033" data-name="Group 21033" transform="translate(28.127 34.003)" opacity="0.2">
+          <g id="Group_21029" data-name="Group 21029">
+            <path id="Path_1019" data-name="Path 1019" d="M89.368,156.486A61.242,61.242,0,1,1,150.61,95.244,61.311,61.311,0,0,1,89.368,156.486Zm0-112.694a51.453,51.453,0,1,0,51.453,51.452A51.511,51.511,0,0,0,89.368,43.792Z" transform="translate(-28.127 -34.003)" fill="#dbf2ff"/>
+          </g>
+          <g id="Group_21030" data-name="Group 21030" transform="translate(45.11 45.11)">
+            <path id="Path_1020" data-name="Path 1020" d="M91.761,113.769a16.132,16.132,0,1,1,16.132-16.132A16.15,16.15,0,0,1,91.761,113.769Zm0-22.475A6.343,6.343,0,1,0,98.1,97.637,6.35,6.35,0,0,0,91.761,91.295Z" transform="translate(-75.63 -81.506)" fill="#dbf2ff"/>
+          </g>
+          <g id="Group_21031" data-name="Group 21031" transform="translate(15.042 15.042)">
+            <path id="Path_1021" data-name="Path 1021" d="M90.166,142.242a46.2,46.2,0,1,1,46.2-46.2A46.251,46.251,0,0,1,90.166,142.242Zm0-82.61a36.411,36.411,0,1,0,36.411,36.41A36.451,36.451,0,0,0,90.166,59.632Z" transform="translate(-43.967 -49.843)" fill="#dbf2ff"/>
+          </g>
+          <g id="Group_21032" data-name="Group 21032" transform="translate(30.19 30.19)">
+            <path id="Path_1022" data-name="Path 1022" d="M90.97,127.9a31.051,31.051,0,1,1,31.052-31.052A31.086,31.086,0,0,1,90.97,127.9Zm0-52.314a21.262,21.262,0,1,0,21.262,21.262A21.287,21.287,0,0,0,90.97,75.584Z" transform="translate(-59.919 -65.795)" fill="#dbf2ff"/>
+          </g>
+        </g>
+        <g id="Group_21038" data-name="Group 21038" transform="translate(31.813 36.262)">
+          <g id="Group_21034" data-name="Group 21034">
+            <path id="Path_1023" data-name="Path 1023" d="M89.564,154.347A59.136,59.136,0,0,1,32.076,108.56a2.635,2.635,0,0,1,5.136-1.18,54.132,54.132,0,0,0,52.351,41.7,53.712,53.712,0,0,0,0-107.424,2.635,2.635,0,0,1,0-5.27,58.983,58.983,0,0,1,0,117.965Z" transform="translate(-32.009 -36.382)" fill="#dbf2ff"/>
+          </g>
+          <g id="Group_21035" data-name="Group 21035" transform="translate(54.919 45.11)">
+            <path id="Path_1024" data-name="Path 1024" d="M103.652,101.6a2.634,2.634,0,0,1-2.624-2.92,8.6,8.6,0,0,0-8.551-9.529,2.635,2.635,0,0,1,0-5.27,13.866,13.866,0,0,1,13.791,15.369A2.635,2.635,0,0,1,103.652,101.6Z" transform="translate(-89.842 -83.885)" fill="#dbf2ff"/>
+          </g>
+          <g id="Group_21036" data-name="Group 21036" transform="translate(38.043 15.041)">
+            <path id="Path_1025" data-name="Path 1025" d="M91.582,140.1a43.658,43.658,0,0,1-17.953-3.835,2.635,2.635,0,0,1,2.154-4.811,38.67,38.67,0,1,0,15.8-73.965,2.636,2.636,0,0,1,0-5.271,43.941,43.941,0,1,1,0,87.882Z" transform="translate(-72.071 -52.221)" fill="#dbf2ff"/>
+          </g>
+          <g id="Group_21037" data-name="Group 21037" transform="translate(54.919 30.19)">
+            <path id="Path_1026" data-name="Path 1026" d="M107.6,120.948a2.636,2.636,0,0,1-1.525-4.786A23.521,23.521,0,0,0,92.477,73.445a2.636,2.636,0,0,1,0-5.271,28.792,28.792,0,0,1,16.638,52.29A2.622,2.622,0,0,1,107.6,120.948Z" transform="translate(-89.842 -68.174)" fill="#dbf2ff"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_21108" data-name="Group 21108" transform="translate(3875 2011.25)" opacity="0.3">
+        <g id="Group_21107" data-name="Group 21107" transform="translate(-3133 -1606.25)">
+          <g id="Group_99" data-name="Group 99" transform="translate(0 0)">
+            <g transform="matrix(1, 0, 0, 1, -276.19, -70.01)" filter="url(#Rectangle_22)">
+              <rect id="Rectangle_22-2" data-name="Rectangle 22" width="136.27" height="61.533" rx="12" transform="translate(276.19 70.01)" fill="#fff"/>
+            </g>
+          </g>
+          <text id="Goal_completion" data-name="Goal completion" transform="translate(5.282 7.49)" fill="#3f3f3f" font-size="3" font-family="BeVietnamPro-Bold, Be Vietnam Pro" font-weight="700"><tspan x="0" y="0">Goal completion</tspan></text>
+          <g id="Group_100" data-name="Group 100" transform="translate(6.074 12.94)">
+            <g transform="matrix(1, 0, 0, 1, -282.27, -82.95)" filter="url(#Rectangle_25)">
+              <rect id="Rectangle_25-4" data-name="Rectangle 25" width="124.915" height="5.282" rx="2.641" transform="translate(282.27 88.76)" fill="#f4f5f8"/>
+            </g>
+            <text id="Lorem_ipsum" data-name="Lorem ipsum" transform="translate(0 3)" fill="#3f3f3f" font-size="3" font-family="BeVietnamPro-Regular, Be Vietnam Pro"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="_100_150" data-name="100/150" transform="translate(109.333 3)" fill="#3f3f3f" font-size="3" font-family="BeVietnamPro-Bold, Be Vietnam Pro" font-weight="700"><tspan x="0" y="0">100/150</tspan></text>
+            <g transform="matrix(1, 0, 0, 1, -282.27, -82.95)" filter="url(#Rectangle_26)">
+              <rect id="Rectangle_26-4" data-name="Rectangle 26" width="83.981" height="5.282" rx="2.641" transform="translate(282.27 88.76)" fill="#58a0d4"/>
+            </g>
+          </g>
+          <g id="Group_100-2" data-name="Group 100" transform="translate(6.074 27.201)">
+            <g transform="matrix(1, 0, 0, 1, -282.27, -97.22)" filter="url(#Rectangle_25-2)">
+              <rect id="Rectangle_25-5" data-name="Rectangle 25" width="124.915" height="5.282" rx="2.641" transform="translate(282.27 103.03)" fill="#f4f5f8"/>
+            </g>
+            <text id="Lorem_ipsum-2" data-name="Lorem ipsum" transform="translate(0 3)" fill="#3f3f3f" font-size="3" font-family="BeVietnamPro-Regular, Be Vietnam Pro"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="_50_150" data-name="50/150" transform="translate(122.182 3)" fill="#3f3f3f" font-size="3" font-family="BeVietnamPro-Bold, Be Vietnam Pro" font-weight="700"><tspan x="-11.208" y="0">50/150</tspan></text>
+            <g transform="matrix(1, 0, 0, 1, -282.27, -97.22)" filter="url(#Rectangle_26-2)">
+              <rect id="Rectangle_26-5" data-name="Rectangle 26" width="50.969" height="5.282" rx="2.641" transform="translate(282.27 103.03)" fill="#62f079"/>
+            </g>
+          </g>
+          <g id="Group_100-3" data-name="Group 100" transform="translate(6.074 41.462)">
+            <g transform="matrix(1, 0, 0, 1, -282.27, -111.48)" filter="url(#Rectangle_25-3)">
+              <rect id="Rectangle_25-6" data-name="Rectangle 25" width="124.915" height="5.282" rx="2.641" transform="translate(282.27 117.29)" fill="#f4f5f8"/>
+            </g>
+            <text id="Lorem_ipsum-3" data-name="Lorem ipsum" transform="translate(0 3)" fill="#3f3f3f" font-size="3" font-family="BeVietnamPro-Regular, Be Vietnam Pro"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="Completed" transform="translate(121.316 3)" fill="#3f3f3f" font-size="3" font-family="BeVietnamPro-Bold, Be Vietnam Pro" font-weight="700"><tspan x="-16.773" y="0">Completed</tspan></text>
+            <g transform="matrix(1, 0, 0, 1, -282.27, -111.48)" filter="url(#Rectangle_26-3)">
+              <rect id="Rectangle_26-6" data-name="Rectangle 26" width="124.915" height="5.282" rx="2.641" transform="translate(282.27 117.29)" fill="#ce2f66"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <text id="Loading.." transform="translate(722 650)" fill="#3f3f3f" font-size="14" font-family="Gotham-Book, Gotham"><tspan x="-31.787" y="0">Loading..</tspan></text>
+    <path id="Icon_awesome-smile-wink" data-name="Icon awesome-smile-wink" d="M0,10.563a10,10,0,1,0,10-10A10,10,0,0,0,0,10.563ZM8.065,8.627a1.29,1.29,0,1,1-1.29-1.29A1.289,1.289,0,0,1,8.065,8.627Zm6.391.665a2.094,2.094,0,0,0-2.46,0l-.383.343a.483.483,0,0,1-.8-.435A2.425,2.425,0,0,1,13.23,7.5a2.425,2.425,0,0,1,2.415,1.7.483.483,0,0,1-.8.435ZM6.363,13.377a4.738,4.738,0,0,0,7.274,0,.646.646,0,0,1,.992.827,6.027,6.027,0,0,1-9.258,0,.644.644,0,0,1,.992-.823Z" transform="translate(777 633.438)" fill="#3f3f3f"/>
+  </g>
+</svg>

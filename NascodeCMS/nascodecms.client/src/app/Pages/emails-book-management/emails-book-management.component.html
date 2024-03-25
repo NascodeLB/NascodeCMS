@@ -1,0 +1,130 @@
+
+<div class="NormalDiv">
+  <div class="PageContainer">
+    <div class="PageTitle">Emails Design Management</div>
+    <div class="u-ht-xs-20"></div>
+    <div class="TableContainer">
+      <div class="TableHeader u-width100">
+
+        <div class="TableTitle floatL display-flex-center u-pd-tb-13">
+          <div class="ic_back IWantAMouseOVerNowBut75 u-mr-xs-10" *ngIf="ViewMode != 'Items'" (click)="goback()"></div>
+          {{ViewMode}} <span *ngIf="ViewMode == 'Items'" class="DescriptionMeduim ColorMyTitleBlack u-pl-xs-10 u-pl-xs-2">{{ HeadMessage}}</span>
+
+
+        </div>
+        <div class="floatR">
+          <app-icon-button class="floatL u-ml-xs-20 mg-bt-10-970" IconSource="../../assets/images/ic_clone.svg" (click)="onCloneCLick()" *ngIf="ShowClone && PagePermissions.cloneOpr"></app-icon-button>
+          <app-print-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="ShowPrint && PagePermissions.printOpr"></app-print-button>
+          <app-export-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="ShowExport && PagePermissions.exportOpr"></app-export-button>
+          <app-icon-button class="floatL u-ml-xs-20 mg-bt-10-970" IconSource="../../assets/images/ic_edit_black.svg" (click)="onEditCLick()" *ngIf="ShowEdit && PagePermissions.editOpr"></app-icon-button>
+          <app-icon-button class="floatL u-ml-xs-20 mg-bt-10-970" BackgroundColor="#F9E9EF" IconSource="../../assets/images/ic_delete_red.svg" (click)="onDeleteCLick()" *ngIf="ShowDelete && PagePermissions.deleteOpr"></app-icon-button>
+          <app-search-bar class="floatL u-ml-xs-20 mg-bt-10-970" (onTextChange)="onSearch($event)" *ngIf="ShowSearch"></app-search-bar>
+          <app-language-button [SelectLangaugeId]="DefaultLanguage" *ngIf="ShowLanguage" class="floatL u-ml-xs-20 mg-bt-10-970" (onLanguageChange)="handlelanguageChange($event)"></app-language-button>
+          <app-icon-title-button class="floatL u-ml-xs-20" Title="Add new" IconSource="../../assets/images/ic_plus_white.svg" (click)="onAddNewClick()" *ngIf="ShowAddNew && PagePermissions.addOpr" BackgroundColor="#3F3F3F"></app-icon-title-button>
+
+        </div>
+      </div>
+      <div class="TableBody u-width100">
+        <app-data-grid *ngIf="ViewMode == 'Items'"
+                       [Headers]="Headers"
+                       [Items]="Data"
+                       [Pages]="Pages"
+                       [FirstPage]="FirstPage"
+                       [LastPage]="LastPage"
+                       (checkboxChange)="handleCheckboxChange($event)"
+                       (onrowClick)="handleRowCLick($event)"
+                       (onsortChange)="handleSortClick($event)"
+                       (selectAllChange)="handleSelectAll($event)"
+                       (onPageChange)="handlepageChange($event)"
+                       (onPageSizeChange)="handlePageSizeChange($event)"></app-data-grid>
+
+        <div class="u-relative DivToPrint" *ngIf="ViewMode == 'Details'">
+          <form (ngSubmit)="save(createForm)" #createForm="ngForm" validate>
+            <div class="u-table u-width100">
+              <div class="u-tableCell">
+
+                <div class="Section u-mb-xs-20 floatL width100 ">
+                  <div *ngIf="!ShowItems" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                    <div class="InputTitle">Record ID</div>
+                    <input class="Input" [disabled]="true" [(ngModel)]="EmailbookDetails.id"
+                           name="id" #id="ngModel" type="text">
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                    <div class="InputTitle">Code* </div>
+                    <div [ngClass]="{'InputError': requiredcode}">
+                      <input class="Input" *ngIf="!ShowItems" [(ngModel)]="EmailbookDetails.code"
+                             name="code" #code="ngModel" type="text" maxlength="50" required>
+                      <div *ngIf="ShowItems">
+                        {{ EmailbookDetails.code }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                    <div class="InputTitle">Subject* </div>
+                    <div [ngClass]="{'InputError': requiredsubject}">
+                      <input class="Input" *ngIf="!ShowItems" [(ngModel)]="EmailbookDetails.subject"
+                             name="subject" #subject="ngModel" type="text" maxlength="12" required>
+                      <div *ngIf="ShowItems">
+                        {{ EmailbookDetails.subject }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="Section u-mb-xs-20 floatL width100 ">
+                  <div class="col-xs-12 floatL u-relative u-pb-xs-20">
+                    <div class="InputTitle">Email Body </div>
+                    <ckeditor [(ngModel)]="EmailbookDetails.body"
+                              #myckeditor="ngModel"
+                              name="myckeditor"
+                              [config]="ckeConfig"
+                              debounce="500"
+                              [readonly]="ShowItems"
+                              (paste)="onPaste($event)"
+                              (change)="onChange($event)">
+                    </ckeditor>
+                  </div>
+
+                </div>
+                <div *ngIf="!hideCreationBanner">
+                  <div class="Section u-mb-xs-20 floatL width100">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Creation date</div>
+                      <div class="Desc">{{CreationDate}}</div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Created by</div>
+                      <div class="Desc">{{CreatedBy}}</div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Modification date</div>
+                      <div class="Desc">{{ ModificationDate}}</div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                      <div class="InputTitle">Modified by</div>
+                      <div class="Desc">{{ModifiedBy}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="BottomActionsContainer" *ngIf="ShowCancelSave">
+              <div class="NormalDiv justify-end">
+                <button class="floatL u-mr-xs-20  GlobalButton u-marginAuto u-animateMe" type="submit" color="primary" *ngIf="PagePermissions.addOpr || PagePermissions.editOpr">Save</button>
+                <app-icon-title-button class="floatL" Title="Cancel" (click)="onCancel()" BackgroundColor="transparent" TextColor="#3F3F3F"></app-icon-title-button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

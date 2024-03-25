@@ -1,0 +1,104 @@
+.ic_delete {
+  background-image: url(../../../assets/images/ic_delete_red.svg);
+  width: 15.34px;
+  height: 20px;
+  background-repeat: no-repeat;
+  margin: 29px 20px;
+}
+
+/*.ic_delete:hover {
+    display: none;
+  }
+  .ic_delete:hover + .btnRemove {
+    display: block;
+    width: 100px;
+  }
+.btnRemove {
+  color: #CE2F66;
+  background-color: #F9E9EF;
+  padding: 29px 20px;
+  font-size: 13px;
+  font-family: 'bevietnam_bold';
+  line-height: 1.23;
+  display: none;
+  width: 0px;
+  transition:width 1s ease-in-out;
+}
+*/
+
+.ChangePermissionsBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(219, 242, 255, 0.25);
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow: hidden !important;
+}
+
+.ChangePermissionsContainer {
+  max-width: 680px;
+  width: 100%;
+  min-height: 518px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 1px 9px 3px #D4D9E6;
+  position: relative;
+  overflow: hidden;
+  margin: 15px;
+}
+
+.ChangePermissionsHeader {
+  margin: 32px 32px 12px 32px;
+  display: table;
+}
+
+.colorBlack {
+  color: #3F3F3F;
+}
+
+.ChangePermissionsBody {
+  border: 1px solid #D4D9E6;
+  border-left: 0px;
+  border-right: 0px;
+  display: table;
+  width: 100%;
+}
+
+.ChangePermissionsPagesList {
+  background-color: #F4F5F8;
+  width: 255px;
+  height: 319px;
+  overflow-y: scroll;
+}
+.OpertationTitle {
+  font-family: "bevietnam_bold";
+  font-size: 14px;
+  line-height: 1.28;
+  color: #3F3F3F;
+  margin-right: 12px;
+}
+.OperationRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px 8px 27px;
+}
+.OperationList{
+    width: calc(100% - 255px);
+}
+.ChangePermissionsFooter{
+    padding: 20px;
+}
+.Savebtn{
+    width: 100px;
+}
+.overflowhidden{
+    overflow: hidden !important;
+}

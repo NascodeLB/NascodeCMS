@@ -1,0 +1,13 @@
+<div class="u-relative">
+  <div class="InputTitle" *ngIf="Title">{{Title}}</div>
+  <div *ngIf="Disable == true">
+    <!--<input class="Input" [disabled]="true" [(ngModel)]="TextValue" type="text">-->
+    {{TextValue}}
+  </div>
+
+  <div [class.InputError]="Error" *ngIf="!Disable">
+    <select class="Input Dropdown" (change)="SelectChange($event)" [(ngModel)]="selectedValue">
+      <option *ngFor="let item of Data" [value]="item.Value">{{ item.Title }}</option>
+    </select>
+  </div>
+</div>

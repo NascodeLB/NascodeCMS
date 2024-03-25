@@ -1,0 +1,138 @@
+
+<div class="DivToPrint">
+  <style>
+    @media print {
+      .GridResults, .PrintHide, .AbsoSorting {
+        display: none !important;
+      }
+
+      .PrintMe {
+        display: table-row !important;
+      }
+
+      @media all and (max-width: 1358px) {
+        .HorizontalBorder tr td {
+          display: table-cell !important;
+        }
+
+          .HorizontalBorder tr td:last-child {
+            display: none !important;
+          }
+      }
+
+      .Grid_HeaderStyle td a:before {
+        background-image: none !important;
+      }
+    }
+  </style>
+
+  <div class="HeaderGridView">
+    <table id="TableToExport" class="GridContainer" >
+      <tr class="GridRow TableHead">
+        <td class="GridCell GridHead  selectAllWidth PrintHide" *ngIf="!GridEditMode">
+          <input class="CheckBoxCostumizedNS2 " type="checkbox" id="checkAllGrid" (change)="CheckAllCheckBoxs($event)" />
+          <label for="checkAllGrid"><span class="CheckBoxStyle"></span></label>
+        </td>
+        <td class="GridCell GridHead" data-sort="asc" *ngFor="let item of Headers">
+          <div class="u-relative u-inlineBlock">
+            <span class="MyTitleHead sortMe" (click)="onSortChange($event, item.Code)">{{ item.Title }}</span>
+            <div class="AbsoSorting">
+              <div class="SortUp" [style.border-bottom-color]="Sortby == item.Code && Sortdirection == 'desc' ? '#bdbdbd' : '#3f3f3f' "></div>
+              <div class="SortDown" [style.border-top-color]="Sortby == item.Code && Sortdirection == 'asc' ? '#bdbdbd' : '#3f3f3f' "></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr class="GridRow GridResults editmode-tr" [class.editmode-tr]="GridEditMode" *ngFor="let Item of Items">
+        <ng-container *ngIf="GridEditMode && Item.checked">
+          <td class="Gridcell GridContentCell editmode-td" [class.border-collapse]="GridEditMode" *ngFor="let header of Headers">
+            <img class="TableThumbnailImage" [src]="ServerHost.concat(Item[header.Code])" *ngIf="header.Type == 'picture'"  />
+            <mat-slide-toggle [checked]="Item[header.Code]" (change)="onActiveToggleChange($event, Item.id)" *ngIf="header.Type == 'toggle'"></mat-slide-toggle>
+            <div *ngIf="header.Type == 'text'">
+              <input class="Input editmode-input" [class.inputError]="checkerror(Item.id,header.Code)" type="text" [value]="Item[header.Code]" (input)="onTextInputChange($event, Item.id, header.Code)">
+            </div>
+            <div *ngIf="header.Type == 'view'" style="padding:0px 15px;">
+              {{ Item[header.Code]  }}
+            </div>
+            <div *ngIf="header.Type == 'date'" style="padding:0px 15px;">
+              {{ getlocaldate(Item[header.Code]) }}
+            </div>
+          </td>
+        </ng-container>
+        <ng-container *ngIf="!GridEditMode">
+          <td class="Gridcell selectAllWidth PrintHide u-pl-xs-20">
+            <div *ngIf="!Item.editmode">
+              <input class="CheckBoxCostumizedNS2 Chkselectgrd" type="checkbox" id="chkselect{{ Item.id }}" [checked]="CheckAll" (change)="onCheckboxChange($event, Item.id  )">
+              <label for="chkselect{{ Item.id  }}"><span class="Checkboxstyle"></span></label>
+            </div>
+          </td>
+          <td class="Gridcell GridContentCell" *ngFor="let header of Headers">
+            
+            <img class="TableThumbnailImage"  [src]="ServerHost.concat(Item[header.Code])" *ngIf="header.Type == 'picture'" (click)="HandleGridPictureClick(ServerHost.concat(Item[header.Code]), Item[header.Code])" />
+            <mat-slide-toggle [checked]="Item[header.Code] == 1 ? true : false" (change)="onActiveToggleChange($event, Item.id)" *ngIf="header.Type == 'toggle'"></mat-slide-toggle>
+            <div *ngIf="header.Type == 'text' " (click)="onRowClick($event,Item.id)">
+              {{ Item[header.Code]  }}
+            </div>
+            <div *ngIf="header.Type == 'view'" (click)="onRowClick($event, Item.id)">
+              {{ Item[header.Code]  }}
+            </div>
+            <div *ngIf="header.Type == 'date'" (click)="onRowClick($event, Item.id)">
+              {{ getlocaldate(Item[header.Code]) }}
+            </div>
+          </td>
+        </ng-container>
+
+      </tr>
+      <tr class="GridRow NoResults" *ngIf="Items.length == 0">
+        <td class="GridCell borderRight0 textalignC DescriptionMeduim ColorMyTitleBlack u-pt-xs-10" [attr.colspan]="Headers.length + 1">
+          No Results Found!
+        </td>
+      </tr>
+
+      <div class="LoadingDivContainer" *ngIf="Loading == true">
+        <div class="ic_loading">
+          <div class="ic_loader"></div>
+        </div>
+
+      </div>
+
+    </table>
+
+  </div>
+
+</div>
+
+
+<div class="u-relative u-width100 display-flex-center justify-space-between u-mt-xs-10" *ngIf="!GridEditMode">
+  <div class="display-flex-center ">
+    <div class="SmallDesc u-mr-xs-10">Show</div>
+    <app-drop-down [Data]="ItemsListSize" (onSelectChange)="handlePageSizeChange($event)"></app-drop-down>
+  </div>
+  <div class="PagingContainer">
+    <div class="ic_first  floatL u-mr-xs-15 IWantAMouseOVerNowBut75" *ngIf="CurrentPage > 1" (click)="selectPage(1)"></div>
+    <div class="Prevbtn floatL u-mr-xs-15 IWantAMouseOVerNowBut75" *ngIf="CurrentPage > Pages[0]" (click)="selectPrePage()">
+
+      Previous
+    </div>
+    <ng-container *ngFor="let page of Pages">
+
+      <div class="Pagebtn floatL IWantAMouseOVerNowBut75" [class.PagebtnSelected]="CurrentPage == page " (click)="selectPage(page)">
+        {{ page }}
+      </div>
+
+    </ng-container>
+    <div class="Nextbtn floatL u-ml-xs-15 IWantAMouseOVerNowBut75" *ngIf="CurrentPage != LastPage" (click)="selectNextPage()">
+      Next
+
+    </div>
+    <div class="ic_last floatL IWantAMouseOVerNowBut75 u-ml-xs-15" *ngIf="CurrentPage != LastPage" (click)="selectPage(LastPage)"></div>
+  </div>
+</div>
+
+
+<app-image-previwer [ImageSrc]="PreviewImgSrc"
+                    [Title]="PreviewImageTitle"
+                    [Show]="PreviewShow"
+                    (onShowChange)="PreviewShow = !PreviewShow"></app-image-previwer>
+

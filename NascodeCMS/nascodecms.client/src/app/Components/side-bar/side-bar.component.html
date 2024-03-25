@@ -1,0 +1,156 @@
+<div class="SideBarContainer" [class.SmallMenu]="CloseMenu" style="width: 230px; height: 100vh">
+  <div class="display-flex-center SideBarHeader" [class.justify-center]="CloseMenu">
+    <div class="Logo" [class.display-none]="CloseMenu"></div>
+    <div class="ic_pin IWantAMouseOVerNowBut75" [class.ic_pin_closed]="CloseMenu" [class.ic_margin]="CloseMenu" (click)="changeMenuSize()"></div>
+  </div>
+  <div class="DropListContainer u-mt-xs-10">
+
+    <div class="DropList">
+      <div class="DropListHead u-mb-xs-10">
+        <div class="SelectIndicator" [class.SelectIndicator-Selected]="SelectedList == 'dashboard'"></div>
+        <div class="Hovered" [class.selected]="SelectedList == 'dashboard'" (click)="changeSelectedList($event,'dashboard')">
+          <a class="linkhover" routerLink="/dashboard">
+            <div class="display-flex-center justify-normal">
+              <img class="icon" src="../../../assets/images/ic_dashboard.svg" />
+              <div class="DropListTitle" [class.display-none]="CloseMenu">
+                Dashboard
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="DropList">
+      <div class="DropListHead u-mb-xs-10">
+        <div class="SelectIndicator" [class.SelectIndicator-Selected]="SelectedList == 'pages'"></div>
+        <div class="Hovered" [class.selected]="SelectedList == 'pages'" (click)="changeSelectedList($event,'pages')">
+          <div class="display-flex-center justify-normal">
+            <img class="icon" src="../../../assets/images/ic_definitions.svg" />
+            <div class="DropListTitle" [class.display-none]="CloseMenu">Pages</div>
+          </div>
+          <div [class]="SelectedList == 'pages'? 'ic_up' : 'ic_down'" [class.display-none]="CloseMenu"></div>
+        </div>
+      </div>
+      <ul id="list-pages" class="LinksList" [class.expanded]="SelectedList == 'pages'">
+        <ng-container *ngFor="let page of StaticKewordsPages">
+          <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+              [class.ListLinkSelected]="SelectedSubList == page.menuTitle.toLowerCase()"
+              (click)="selectlink(page.menuTitle.toLowerCase(),'pages')"
+              *ngIf="checkViewPermissions('statickeywords')">
+            <a class="linkhover" routerLink="pages/{{ page.menuTitle}}/{{ page.id }}">{{ page.menuTitle }}</a>
+          </li>
+
+        </ng-container>
+
+      </ul>
+    </div>
+    <div class="DropList">
+      <div class="DropListHead u-mb-xs-10">
+        <div class="SelectIndicator" [class.SelectIndicator-Selected]="SelectedList == 'dynamiccontent'"></div>
+        <div class="Hovered" [class.selected]="SelectedList == 'dynamiccontent'" (click)="changeSelectedList($event,'dynamiccontent')">
+          <div class="display-flex-center justify-normal">
+            <img class="icon" src="../../../assets/images/ic_definitions.svg" />
+            <div class="DropListTitle" [class.display-none]="CloseMenu">Content</div>
+          </div>
+          <div [class]="SelectedList == 'dynamiccontent'? 'ic_up' : 'ic_down'" [class.display-none]="CloseMenu"></div>
+        </div>
+      </div>
+      <ul id="list-dynamiccontent" class="LinksList" [class.expanded]="SelectedList == 'dynamiccontent'">
+        <ng-container *ngFor="let page of DynamicContentPages">
+          <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+              [class.ListLinkSelected]="SelectedSubList == page.title.toLowerCase()"
+              (click)="selectlink(page.title.toLowerCase(),'dynamiccontent')"
+              *ngIf="checkViewPermissions('dynamiccontent')">
+            <a class="linkhover" routerLink="dynamiccontent/{{page.title}}/{{ page.id }}">{{ page.title }}</a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+
+    
+
+    <div class="DropList">
+      <div class="DropListHead u-mb-xs-10">
+        <div class="SelectIndicator" [class.SelectIndicator-Selected]="SelectedList == 'reports'"></div>
+        <div class="Hovered" [class.selected]="SelectedList == 'reports'" (click)="changeSelectedList($event,'reports')">
+          <div class="display-flex-center justify-normal">
+            <img class="icon" style="margin-left: 14px;" src="../../../assets/images/ic_reports.svg" />
+            <div class="DropListTitle" [class.display-none]="CloseMenu">Reports</div>
+          </div>
+          <div [class]="SelectedList == 'repprts'? 'ic_up' : 'ic_down'" [class.display-none]="CloseMenu"></div>
+        </div>
+      </div>
+      <ul class="LinksList" [class.expanded]="SelectedList == 'reports'" id="list-reports">
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'contactsubmissions'"
+            (click)="selectlink('contactsubmissions','reports')"
+            *ngIf="checkViewPermissions('contactsubmissions')">
+          <a class="linkhover" routerLink="reports/contactsubmissions">Contact Submissions</a>
+        </li>
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'errorslog'"
+            (click)="selectlink('errorslog','reports')"
+            *ngIf="checkViewPermissions('errorslog')">
+          <a class="linkhover" routerLink="reports/errorslog">Errors Logs</a>
+        </li>
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'auditlogs'"
+            (click)="selectlink('auditlogs','reports')"
+            *ngIf="checkViewPermissions('auditlogs')">
+          <a class="linkhover" routerLink="reports/auditlogs">Audit Logs</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="DropList">
+      <div class="DropListHead u-mb-xs-10">
+        <div class="SelectIndicator" [class.SelectIndicator-Selected]="SelectedList == 'settings'"></div>
+        <div class="Hovered" [class.selected]="SelectedList == 'settings'" (click)="changeSelectedList($event,'settings')">
+          <div class="display-flex-center justify-normal">
+            <img class="icon" style="margin-left: 14px;" src="../../../assets/images/ic_settings.svg" />
+            <div class="DropListTitle" [class.display-none]="CloseMenu">Settings</div>
+          </div>
+          <div [class]="SelectedList == 'settings'? 'ic_up' : 'ic_down'" [class.display-none]="CloseMenu"></div>
+        </div>
+      </div>
+      <ul class="LinksList" [class.expanded]="SelectedList == 'settings'" id="list-settings">
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'generalsettings'"
+            (click)="selectlink('generalsettings','settings')"
+            *ngIf="checkViewPermissions('generalsettings')">
+          <a class="linkhover" routerLink="settings/generalsettings">General Settings</a>
+        </li>
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'emailsbooks'"
+            (click)="selectlink('emailsbooks','settings')"
+            *ngIf="checkViewPermissions('emailsbooks')">
+          <a class="linkhover" routerLink="settings/emailsbooks">Emails Design Managements</a>
+        </li>
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'profile'"
+            (click)="selectlink('profile','settings')"
+            *ngIf="checkViewPermissions('profile')">
+          <a class="linkhover" routerLink="settings/profile">Profile</a>
+        </li>
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'users'"
+            (click)="selectlink('users','settings')"
+            *ngIf="checkViewPermissions('users')">
+          <a class="linkhover" routerLink="settings/users">Users</a>
+        </li>
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'usersgroups'"
+            (click)="selectlink('usersgroups','settings')"
+            *ngIf="checkViewPermissions('usersgroups')">
+          <a class="linkhover" routerLink="settings/usersgroups">Users Groups</a>
+        </li>
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu" [class.ListLinkSelected]="SelectedSubList == 'logout'" (click)="this.authService.logout()">Logout</li>
+      </ul>
+    </div>
+
+
+  </div>
+
+</div>

@@ -1,0 +1,16 @@
+.AnimatedSection {
+  overflow: hidden;
+  transition: height 1s ease-in-out 1s;
+  transition: height 1s ease-in-out;
+}
+.CloseSection {
+  height: 0px;
+  
+}
+.TableContainer{
+    padding-bottom: 12px;
+}
+
+.TableTitle{
+    padding-bottom: 0px;
+}

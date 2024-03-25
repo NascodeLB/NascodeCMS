@@ -1,0 +1,5 @@
+<app-icon-button class="" IconSource="../../assets/images/ic_search_black.svg" *ngIf="Showbar == false" (click)="ShowSearchBar()"></app-icon-button>
+<div class="SearchBarContainer" *ngIf="Showbar == true">
+   <input type="text" class="SearchBarInput" (input)="HandleTextChange($event)" placeholder="Search" />
+  <div class="ic_close IWantAMouseOVerNowBut50" (click)="CloseSearchBar()"></div>
+</div>

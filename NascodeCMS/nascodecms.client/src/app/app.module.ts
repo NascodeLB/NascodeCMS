@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OfficesComponent } from './Pages/offices/offices.component';
 import { AccountLoginComponent } from './Pages/account-login/account-login.component';
 import { DataGridComponent } from './Components/data-grid/data-grid.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,9 +16,6 @@ import { AuthService } from './auth.service';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService } from 'primeng/api';
-import { BanksComponent } from './Pages/banks/banks.component';
-import { BanksApiService } from './Services/BanksApi.service';
-import { CurrenciesApiService } from './Services/CurrenciesApi.service';
 import { SearchBarComponent } from './Components/search-bar/search-bar.component';
 import { PrintButtonComponent } from './Components/print-button/print-button.component';
 import { ExportButtonComponent } from './Components/export-button/export-button.component';
@@ -50,7 +46,7 @@ import { ProfileComponent } from './Pages/profile/profile.component';
 import { LogFrontendComponent } from './Pages/log-frontend/log-frontend.component';
 import { AuditLogComponent } from './Pages/audit-log/audit-log.component';
 import { ContactSubmissionsComponent } from './Pages/contact-submissions/contact-submissions.component';
-import { MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
 import { DatePickerComponent } from './Components/date-picker/date-picker.component';
@@ -73,14 +69,12 @@ export const MY_DATE_FORMATS = {
 @NgModule({
   declarations: [
     AppComponent,
-    OfficesComponent,
     DataGridComponent,
     AccountLoginComponent,
     IconButtonComponent,
     LanguageButtonComponent,
     IconTitleButtonComponent ,
     DataGridComponent,
-    BanksComponent,
     SearchBarComponent,
     PrintButtonComponent,
     ExportButtonComponent,
@@ -122,7 +116,7 @@ export const MY_DATE_FORMATS = {
     ToastModule,
     NgxPhotoEditorModule
   ],
-  providers: [MessageService, AuthService, ConfirmationService, BanksApiService, CurrenciesApiService, GlobalService, DatePipe, PicDimensionApiService , UsersGroupsApi, GlobalStaticKeywordsApi,{
+  providers: [MessageService, AuthService, ConfirmationService, GlobalService, DatePipe, PicDimensionApiService , UsersGroupsApi, GlobalStaticKeywordsApi,{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true,

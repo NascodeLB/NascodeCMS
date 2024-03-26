@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OfficesComponent } from './Pages/offices/offices.component'; 
-import { AccountLoginComponent } from './Pages/account-login/account-login.component';   
-import { BanksComponent } from './Pages/banks/banks.component';
+import { AccountLoginComponent } from './Pages/account-login/account-login.component'; 
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { UsersGroupsComponent } from './Pages/users-groups/users-groups.component';
 import { AccessDeniedComponent } from './Pages/access-denied/access-denied.component';
@@ -21,10 +19,7 @@ const routes: Routes = [
    
     path: 'dashboard', component: DashboardComponent, children: [
       // for definitions
-      { path: 'definitions/offices', component: OfficesComponent },
-      { path: 'definitions/banks', component: BanksComponent },
-      { path: 'definitions/banks/:id/:language', component: BanksComponent },
-
+   
       // for global static keywords
       { path: 'pages/:pagetitle/:id', component: GlobalStaticKeywordsComponent },
 

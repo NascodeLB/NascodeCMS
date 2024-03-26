@@ -18,7 +18,7 @@ namespace NascodeCMS.Server.Controllers
         private readonly ILogger _logger;
         private readonly PropertyHelper _propertyHelper;
         private string _connectionString;
-        public ContactController(IConfiguration configuration, ITokenService tokenService, IWebHostEnvironment env, ILogger<BanksController> logger, PropertyHelper propertyHelper)
+        public ContactController(IConfiguration configuration, ITokenService tokenService, IWebHostEnvironment env, ILogger<ContactController> logger, PropertyHelper propertyHelper)
         {
             _configuration = configuration;
             _tokenService = tokenService;

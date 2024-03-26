@@ -3,7 +3,6 @@ import { Observable, throwError as _observableThrow, of as _observableOf, throwE
 import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse, HttpResponseBase } from '@angular/common/http';
 import { AppConsts } from '../Shared/AppConsts';
-import { BankDto } from '../Models/BankDto.model';
 import { PaginationDto } from '../Models/PaginationDto.model';
 import { MessageService } from 'primeng/api';
 import { EmailsbookDto } from '../Models/EmailsbookDto.model';

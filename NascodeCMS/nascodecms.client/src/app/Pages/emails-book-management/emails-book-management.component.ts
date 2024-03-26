@@ -100,14 +100,7 @@ export class EmailsBookManagementComponent {
   };
   mycontent: string = "";
   @ViewChild("myckeditor") ckeditor!: CKEditorComponent;
-  onChange($event: any): void {
-    this.EmailbookDetails.body = this.ckeditor.value;
-  }
 
-  onPaste($event: any): void {
-    this.EmailbookDetails.body = this.ckeditor.value;
-    
-  }
 
 
 
@@ -280,7 +273,7 @@ export class EmailsBookManagementComponent {
     this.EmailsbookApi.getEmailbookById(recID, this.DefaultLanguage).subscribe((data: EmailsbookDto) => {
 
       this.EmailbookDetails = data;
-      console.log(data);
+      if (data.body) this.mycontent = data.body;
       this.CreatedBy = this.EmailbookDetails.createdByName ?? 'Not Set';
       this.ModifiedBy = this.EmailbookDetails.modifiedByName ?? 'Not Set';
       if (this.EmailbookDetails.modificationDate) {
@@ -410,6 +403,10 @@ export class EmailsBookManagementComponent {
   }
 
   save(createForm: NgForm): void {
+    if (this.EmailbookDetails.body == "") {
+      this.EmailbookDetails.body = this.mycontent;
+    }
+
     var validdrop = true;
    
     if (createForm.valid && validdrop) {

@@ -112,15 +112,6 @@ export class DynamicContentComponent {
   mycontent: string = "";
   @ViewChild("myckeditor") ckeditor!: CKEditorComponent;
 
-  onChange($event: any): void {
-    this.contentDetails.description = this.ckeditor.value;
-  }
-
-  onPaste($event: any): void {
-    this.contentDetails.description = this.ckeditor.value;
-    ;
-  }
-
 
 
   // to hide/show fields
@@ -383,6 +374,8 @@ export class DynamicContentComponent {
 
       this.contentDetails = data;
       if (data.picture) this.PictureInfo = [data.picture];
+      if (data.description) this.mycontent = data.description;
+
       this.CreatedBy = this.contentDetails.createdByName ?? 'Not Set';
       this.ModifiedBy = this.contentDetails.modifiedByName ?? 'Not Set';
       if (this.contentDetails.modificationDate) {
@@ -518,6 +511,11 @@ export class DynamicContentComponent {
   }
 
   save(createForm: NgForm): void {
+    if (this.contentDetails.description == "") {
+      this.contentDetails.description = this.mycontent;
+    }
+   
+    console.log(this.contentDetails.description);
     this.requiredTitle = false;
     this.requiredSubtitle = false;
     this.requiredButtonText = false;

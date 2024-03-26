@@ -9,9 +9,9 @@
     //  "webRoot": "${workspaceFolder}"
     //},
     {
-      "type": "chrome",
+      "type": "Chrome",
       "request": "launch",
-      "name": "localhost (chrome)",
+      "name": "localhost (Chrome)",
       "url": "https://localhost:4200",
       "webRoot": "${workspaceFolder}"
     }

@@ -1,6 +1,6 @@
+C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\bin\Debug\net8.0\spa.proxy.json
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\bin\Debug\net8.0\appsettings.Development.json
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\bin\Debug\net8.0\appsettings.json
-C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\bin\Debug\net8.0\spa.proxy.json
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\bin\Debug\net8.0\NascodeCMS.Server.exe
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\bin\Debug\net8.0\NascodeCMS.Server.deps.json
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\bin\Debug\net8.0\NascodeCMS.Server.runtimeconfig.json
@@ -267,6 +267,7 @@ C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\obj\Debug\net8.0\Nasc
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\obj\Debug\net8.0\NascodeCMS.Server.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\obj\Debug\net8.0\NascodeCMS.Server.MvcApplicationPartsAssemblyInfo.cs
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\obj\Debug\net8.0\NascodeCMS.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\obj\Debug\net8.0\NascodeCMS.Server.sourcelink.json
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\obj\Debug\net8.0\staticwebassets.build.json
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\obj\Debug\net8.0\staticwebassets.development.json
 C:\inetpub\wwwroot\NascodeCMS\NascodeCMS\Nascodecms.Server\obj\Debug\net8.0\staticwebassets\msbuild.NascodeCMS.Server.Microsoft.AspNetCore.StaticWebAssets.props

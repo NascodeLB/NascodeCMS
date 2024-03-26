@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { UserGroupsFile } from '../../Models/UserGroupsFile.model';
 import { PropertyDto } from '../../Models/PropertyDto.model';
 import { PropertiesApi } from '../../Services/PropertiesApi.service';
-import { GlobalService } from '../../shared/Global.service';
+import { GlobalService } from '../../Shared/Global.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 import { MessageService } from 'primeng/api/messageservice';

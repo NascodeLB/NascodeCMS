@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PaginationDto } from '../../Models/PaginationDto.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GlobalService } from '../../shared/Global.service';
+import { GlobalService } from '../../Shared/Global.service';
 import { DatePipe } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../../auth.service';

@@ -1,5 +1,63 @@
+/*@font-face {
+  font-family: 'gotham_bold';
+  src: url('../../font/Gotham/gothambold-webfont.eot');
+  src: url('../../font/Gotham/gothambold-webfont.eot?#iefix') format('embedded-opentype'), url('../../font/Gotham/gothambold-webfont.woff2') format('woff2'), url('../../font/Gotham/gothambold-webfont.woff') format('woff'), url('../../font/Gotham/gothambold-webfont.ttf') format('truetype'), url('../../font/Gotham/gothambold-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gotham_book';
+  src: url('../../font/Gotham/gothambook-webfont.eot');
+  src: url('../../font/Gotham/gothambook-webfont.eot?#iefix') format('embedded-opentype'), url('../../font/Gotham/gothambook-webfont.woff2') format('woff2'), url('../../font/Gotham/gothambook-webfont.woff') format('woff'), url('../../font/Gotham/gothambook-webfont.ttf') format('truetype'), url('../../font/Gotham/gothambook-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bevietnam_bold';
+  src: url('../../font/Be Vietnam Pro/bevietnampro-bold-webfont.eot');
+  src: url('../../font/Be Vietnam Pro/bevietnampro-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../../font/Be Vietnam Pro/bevietnampro-bold-webfont.woff2') format('woff2'), url('../../font/Be Vietnam Pro/bevietnampro-bold-webfont.woff') format('woff'), url('../../font/Be Vietnam Pro/bevietnampro-bold-webfont.ttf') format('truetype'), url('../../font/Be Vietnam Pro/bevietnampro-bold-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bevietnam_medium';
+  src: url('../../font/Be Vietnam Pro/bevietnampro-medium-webfont.eot');
+  src: url('../../font/Be Vietnam Pro/bevietnampro-medium-webfont.eot?#iefix') format('embedded-opentype'), url('../../font/Be Vietnam Pro/bevietnampro-medium-webfont.woff2') format('woff2'), url('../../font/Be Vietnam Pro/bevietnampro-medium-webfont.woff') format('woff'), url('../../font/Be Vietnam Pro/bevietnampro-medium-webfont.ttf') format('truetype'), url('../../font/Be Vietnam Pro/bevietnampro-medium-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bevietnam_regular';
+  src: url('../../font/Be Vietnam Pro/bevietnampro-regular-webfont.eot');
+  src: url('../../font/Be Vietnam Pro/bevietnampro-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../../font/Be Vietnam Pro/bevietnampro-regular-webfont.woff2') format('woff2'), url('../../font/Be Vietnam Pro/bevietnampro-regular-webfont.woff') format('woff'), url('../../font/Be Vietnam Pro/bevietnampro-regular-webfont.ttf') format('truetype'), url('../../font/Be Vietnam Pro/bevietnampro-regular-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bevietnam_light';
+  src: url('../../font/Be Vietnam Pro/bevietnampro-light-webfont.eot');
+  src: url('../../font/Be Vietnam Pro/bevietnampro-light-webfont.eot?#iefix') format('embedded-opentype'), url('../../font/Be Vietnam Pro/bevietnampro-light-webfont.woff2') format('woff2'), url('../../font/Be Vietnam Pro/bevietnampro-light-webfont.woff') format('woff'), url('../../font/Be Vietnam Pro/bevietnampro-light-webfont.ttf') format('truetype'), url('../../font/Be Vietnam Pro/bevietnampro-light-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html, body {
+  font-family: 'bevietnam_regular', Tahoma, Arial;
+  overflow: hidden;
+}*/
+
+
+
+
+
 /* You can add global styles to this file, and also import other style files */
-.errormessage {
+/*.errormessage {
   color: red;
 }
 
@@ -16,12 +74,12 @@
   .TableTitle {
     margin-right: 10px;
   }
-}
+}*/
 
 
 /* styles for npx photo editor */
 
-.ngx-pe-overlay-container {
+/*.ngx-pe-overlay-container {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.25);
@@ -215,12 +273,12 @@
 
 .ngx-pe-loading svg {
   width: 50px;
-}
+}*/
 
 /* end styles for ngx photo editor */
 
 
-.display-none {
+/*.display-none {
   display: none;
  
 }
@@ -229,12 +287,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+}*/
 
 
 
 /** styles For data grid component */
-.GridContainer {
+/*.GridContainer {
   width: 100%;
   border-spacing: 0;
 }
@@ -335,11 +393,11 @@ table {
 
 .sortMe {
   cursor: pointer;
-}
+}*/
 
 
 /*#region CheckBox */
-.CheckBoxCostumizedNS2 {
+/*.CheckBoxCostumizedNS2 {
   display: none;
 }
 
@@ -413,10 +471,10 @@ table {
     line-height: 1.5px;
     color: rgba(255, 255, 255, 0.7);
     letter-spacing: 0.04em;
-  }
+  }*/
 
 /* region active not active as buttons*/
-.buttonCheckBox {
+/*.buttonCheckBox {
   height: 36px;
   width: 124px;
   border-radius: 25px;
@@ -444,13 +502,13 @@ input[type="checkbox"]:checked ~ .buttonCheckBox {
   color: #282826;
   border: 1px solid #282826;
   font-weight: 600;
-}
+}*/
 
 /*#endregion */
 
 
 /*Region Pagination*/
-.PagingContainer {
+/*.PagingContainer {
   font-family: 'bevietnam_regular';
   font-size: 12px;
   line-height: 1.25;
@@ -472,14 +530,14 @@ input[type="checkbox"]:checked ~ .buttonCheckBox {
 .PagebtnSelected {
   background-color: #F4F5F8;
   font-family: 'bevietnam_bold';
-  -webkit-border-radius: 8px; /* for old Chrome and Safari */
-  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;*/ /* for old Chrome and Safari */
+  /*-moz-border-radius: 8px;
   border-radius: 8px;
-}
+}*/
 /*End Region Pagination*/
 
 
-mat-slide-toggle-bar {
+/*mat-slide-toggle-bar {
   background-color: green !important;
 }
 
@@ -488,14 +546,14 @@ mat-slide-toggle-bar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  -webkit-border-radius: 50%; /* for old Chrome and Safari */
-  -moz-border-radius: 50%;
-}
+  -webkit-border-radius: 50%;*/ /* for old Chrome and Safari */
+  /*-moz-border-radius: 50%;
+}*/
 
 
 /* loading div */
 
-.LoadingDivContainer {
+/*.LoadingDivContainer {
   position: relative;
   width: 100%;
   height: 100%;
@@ -522,12 +580,12 @@ mat-slide-toggle-bar {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;*/
   /* Cross-browser support for animation */
-  -webkit-animation: spin 2s linear infinite; /* Safari and Chrome */
-  -moz-animation: spin 2s linear infinite; /* Firefox */
-  -o-animation: spin 2s linear infinite; /* Opera */
-}
+  /*-webkit-animation: spin 2s linear infinite;*/ /* Safari and Chrome */
+  /*-moz-animation: spin 2s linear infinite;*/ /* Firefox */
+  /*-o-animation: spin 2s linear infinite;*/ /* Opera */
+/*}
 
 @keyframes spin {
   0% {
@@ -537,14 +595,14 @@ mat-slide-toggle-bar {
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
-}
+}*/
 /* end loading div*/
 /** end styles For data grid component */
 
 
 
 /* filters styles */
-.FullpageContainer {
+/*.FullpageContainer {
   position: absolute;
   top: 0;
   right:0;
@@ -570,28 +628,28 @@ mat-slide-toggle-bar {
   
 }
   .FiltersContainer::-webkit-scrollbar {
-    width: 0px; /* Set the width of the scrollbar */
-  }
+    width: 0px;*/ /* Set the width of the scrollbar */
+  /*}
 .FiltersItemslist {
  
   position: relative;
   padding: 20px;
   padding-top: 0px;
-}
+}*/
 
 /* This is a sample styling; adjust it according to your needs */
-.FiltersItemslist::-webkit-scrollbar {
-  width: 4px; /* Set the width of the scrollbar */
-}
+/*.FiltersItemslist::-webkit-scrollbar {
+  width: 4px;*/ /* Set the width of the scrollbar */
+/*}
 
 .FiltersItemslist::-webkit-scrollbar-thumb {
-  background-color: #D4D9E6; /* Set the color of the thumb (the draggable part) */
-  border-radius: 2px; /* Set the border radius of the thumb */
-}
+  background-color: #D4D9E6;*/ /* Set the color of the thumb (the draggable part) */
+  /*border-radius: 2px;*/ /* Set the border radius of the thumb */
+/*}
 
 .FiltersItemslist::-webkit-scrollbar-track {
-  background-color: white; /* Set the color of the track (the non-draggable part) */
-}
+  background-color: white;*/ /* Set the color of the track (the non-draggable part) */
+/*}*/
 
 
 /* end filters styles*/

@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { PaginationDto } from '../../Models/PaginationDto.model';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router, Event as RouterEvent } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { GlobalService } from '../../shared/Global.service';
+import { GlobalService } from '../../Shared/Global.service';
 import { DatePipe } from '@angular/common';
 import { MessageService, Message as MessageInterface } from 'primeng/api';
 import { PopupService } from '../../Services/popup.service';
@@ -175,7 +175,7 @@ export class DynamicContentComponent {
     this.url = 'dashboard/dynamiccontent/' + this.categoryTitle + '/' + this.categoryId ;
     this.RecordID = this.route.snapshot.paramMap.get('contentId') ?? "";
     this.DefaultLanguage = Number.parseInt(this.route.snapshot.paramMap.get('language') ?? "1");
-    this.Sectionname += this.categoryTitle;
+    this.Sectionname = "DynamicContent" + this.categoryTitle;
   
     this.contentDetails = new DynamicContentDto();
 

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { mergeMap as _observableMergeMap, catchError as _observableCatch, map, finalize, catchError, tap } from 'rxjs/operators';
 import { Observable, throwError as _observableThrow, of as _observableOf } from 'rxjs';
 import { Inject } from '@angular/core';
-import { AppConsts } from './shared/AppConsts';
+import { AppConsts } from './Shared/AppConsts';
 import { BoundElementProperty, ConditionalExpr } from '@angular/compiler';
 import { MessageService } from 'primeng/api';
 import { UserGroupsFile } from './Models/UserGroupsFile.model';

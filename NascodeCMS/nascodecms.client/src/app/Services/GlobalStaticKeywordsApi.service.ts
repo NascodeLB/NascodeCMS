@@ -2,7 +2,7 @@ import { mergeMap as _observableMergeMap, catchError as _observableCatch, map, c
 import { Observable, throwError as _observableThrow, of as _observableOf, throwError, combineLatest } from 'rxjs';
 import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse, HttpResponseBase } from '@angular/common/http';
-import { AppConsts } from '../shared/AppConsts';
+import { AppConsts } from '../Shared/AppConsts';
 import { GlobalStaticKeywordsCategoriesDto } from '../Models/GlobalStaticKeywordsCategoriesDto.model';
 import { GlobalStaticKeywordsDto } from '../Models/GlobalStaticKeywordsDto .model';
 import { MessageService } from 'primeng/api';

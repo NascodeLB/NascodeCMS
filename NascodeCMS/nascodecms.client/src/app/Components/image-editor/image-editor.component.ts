@@ -3,7 +3,7 @@ import { NgxCroppedEvent, NgxPhotoEditorService } from "ngx-photo-editor";
 import { PicDimensionApiService, FileParameter } from '../../Services/picDimensionApi.service';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { forEach } from 'lodash';
-import { AppConsts } from '../../shared/AppConsts';
+import { AppConsts } from '../../Shared/AppConsts';
 
 @Component({
   selector: 'app-image-editor',
@@ -51,6 +51,7 @@ export class ImageEditorComponent {
 
   ngOnInit() {
     this.getPic();
+  
   }
 
   fileChangeHandler($event: any) {

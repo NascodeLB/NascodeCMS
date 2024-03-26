@@ -2,7 +2,7 @@ import { mergeMap as _observableMergeMap, catchError as _observableCatch, map, c
 import { Observable, throwError as _observableThrow, of as _observableOf, throwError, combineLatest } from 'rxjs';
 import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse, HttpResponseBase } from '@angular/common/http';
-import { AppConsts } from '../shared/AppConsts';
+import { AppConsts } from '../Shared/AppConsts';
 import { BankDto } from '../Models/BankDto.model';
 import { CurrencyDto } from '../Models/CurrencyDto.model';
 import { PaginationDto } from '../Models/PaginationDto.model';

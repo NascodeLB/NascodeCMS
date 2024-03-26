@@ -5,7 +5,7 @@ import { MessageService } from 'primeng/api';
 import { PopupService } from '../../Services/popup.service';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { GlobalService } from '../../shared/Global.service';
+import { GlobalService } from '../../Shared/Global.service';
 import { GlobalStaticKeywordsApi } from '../../Services/GlobalStaticKeywordsApi.service';
 import { GlobalStaticKeywordsDto } from '../../Models/GlobalStaticKeywordsDto .model';
 import { NgForm } from '@angular/forms';

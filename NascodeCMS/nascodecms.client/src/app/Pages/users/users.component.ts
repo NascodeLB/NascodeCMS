@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PaginationDto } from '../../Models/PaginationDto.model';
 import { ActivatedRoute, NavigationStart, Router, Event as RouterEvent } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, NgModel, Validators } from '@angular/forms';
-import { GlobalService } from '../../shared/Global.service';
+import { GlobalService } from '../../Shared/Global.service';
 import { DatePipe } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { PopupService } from '../../Services/popup.service';

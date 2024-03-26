@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, Renderer2, SimpleChanges } from '@angular/core';
 import { forEach } from 'lodash';
-import { AppConsts } from '../../shared/AppConsts';
-import { GlobalService } from '../../shared/Global.service';
+import { AppConsts } from '../../Shared/AppConsts';
+import { GlobalService } from '../../Shared/Global.service';
 import { DatePipe } from '@angular/common';
 
 @Component({

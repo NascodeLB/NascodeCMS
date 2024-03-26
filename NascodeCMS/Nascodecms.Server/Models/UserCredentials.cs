@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NascodeCMS.Server.Models;
+namespace NascodeERP.Server.Models;
 
 public partial class UserCredentials
 { 

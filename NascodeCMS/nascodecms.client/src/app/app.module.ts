@@ -23,7 +23,7 @@ import { CurrenciesApiService } from './Services/CurrenciesApi.service';
 import { SearchBarComponent } from './Components/search-bar/search-bar.component';
 import { PrintButtonComponent } from './Components/print-button/print-button.component';
 import { ExportButtonComponent } from './Components/export-button/export-button.component';
-import { GlobalService } from './shared/Global.service';
+import { GlobalService } from './Shared/Global.service';
 import { DatePipe } from '@angular/common';
 import { DropDownComponent } from './Components/drop-down/drop-down.component';
 import { MultiSelectDropDownComponent } from './Components/multi-select-drop-down/multi-select-drop-down.component';

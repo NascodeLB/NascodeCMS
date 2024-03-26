@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using NascodeCMS.Filter;
 using NascodeCMS.ResponseModels;
 using NascodeCMS.Server.Services;
+using NascodeERP.Server.Models;
 namespace NascodeCMS.Server.Controllers
 {
     [Route("api/[controller]")]

@@ -11,5 +11,6 @@
     <Folder Include="ApiServices\" />
     <Folder Include="src\assets\font\Gotham\" />
     <Folder Include="src\assets\font\Be Vietnam Pro\" />
+    <Folder Include="src\assets\JS\" />
   </ItemGroup>
 </Project>

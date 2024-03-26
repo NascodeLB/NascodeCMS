@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserDto } from '../../Models/UserDto.model';
-import { GlobalService } from '../../shared/Global.service';
+import { GlobalService } from '../../Shared/Global.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersApiService } from '../../Services/UsersApi.service';
 

@@ -3546,3 +3546,19 @@ input.cmn-toggle-round:checked + label:after {
     background-color: transparent;
     /* transition: 1s; */
   }
+
+
+@media(max-width: 480px) {
+
+  .LoginCard {
+    width: 340px;
+  }
+}
+
+
+@media(max-width: 320px) {
+
+  .LoginCard {
+    width: 300px;
+  }
+}

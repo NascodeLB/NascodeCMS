@@ -51,7 +51,7 @@ export class DynamicContentApiService {
         map(response => response.value),
         catchError((error: HttpErrorResponse) => {
           // Simplified error handling as token logic is now in the interceptor
-          console.log("getDynamicContentPages Pages error: " + error.message);
+          //console.log("getDynamicContentPages Pages error: " + error.message);
           this.handleHttpError(error);
           return throwError(() => new Error(`Error in getDynamicContentPages: ${error.statusText}`));
         })
@@ -83,7 +83,7 @@ export class DynamicContentApiService {
         map(response => response.value),
         catchError((error: HttpErrorResponse) => {
           // Simplified error handling as token logic is now in the interceptor
-          console.log("getallcontent error: " + error.message);
+          //console.log("getallcontent error: " + error.message);
           this.handleHttpError(error);
           return throwError(() => new Error(`Error in getallcontent: ${error.statusText}`));
         })
@@ -98,7 +98,7 @@ export class DynamicContentApiService {
       }),
       map(response => response.value),
       catchError(error => {
-        console.log("getcontentbyid" + error);
+       // console.log("getcontentbyid" + error);
         this.handleHttpError(error);
         return throwError(() => new Error('Error in getcontent: ' + error));
       })

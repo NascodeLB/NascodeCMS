@@ -58,7 +58,7 @@ export class LogFrontendComponent {
   }
   ShowFilter: boolean = true;
   ShowFiltersPopup: boolean = false;
-
+  ShowPrint: boolean = false;
 
   constructor(
     public LogFrontendApi: LogFrontendApi,
@@ -106,8 +106,9 @@ export class LogFrontendComponent {
     const hasCheckedItem = this.Data.some(item => item.checked === 1);
     this.CheckedIds = this.Data.filter(item => item.checked === 1 && item.id !== null).map(item => item.id as number);
     this.HeadMessage = this.getSelectedItemCount() + " selected";
+    this.ShowPrint = true;
     if (!hasCheckedItem) {
-    
+      this.ShowPrint = false;
       this.HeadMessage = this.TotalCount + " Records";
     }
 
@@ -152,11 +153,13 @@ export class LogFrontendComponent {
       });
       this.CheckedIds = this.Data.filter(item => item.checked === 1 && item.id !== null).map(item => item.id as number);
       this.HeadMessage = this.getSelectedItemCount() + " selected";
+      this.ShowPrint = true;
     } else {
     
       this.Data.forEach(item => item.checked = 0);
       this.CheckedIds = this.Data.filter(item => item.checked === 1 && item.id !== null).map(item => item.id as number);
       this.HeadMessage = this.TotalCount + " Records";
+      this.ShowPrint = false;
     }
 
   }

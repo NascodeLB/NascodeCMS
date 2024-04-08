@@ -100,17 +100,23 @@
                   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
                     <app-drop-down [Data]="GroupsList" Title="Group*" [Error]="requiredGroup" [selectedValue]="UserDetails.groupID?.toString() || '0'" [Disable]="ShowItems" (onSelectChange)="handleOnSelectChange($event)"></app-drop-down>
                   </div>
+
+
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
+                    <app-drop-down [Data]="TimezoneList" Title="Timezone*" [Error]="requiredTimeZone" [selectedValue]="UserDetails.timezoneID?.toString() || '0'" [Disable]="ShowItems" (onSelectChange)="handleOnSelectTimezoneChange($event)"></app-drop-down>
+                  </div>
+
                   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20" *ngIf="!ShowItems">
                     <div class="InputTitle">Password </div>
                     <div [ngClass]="{'InputError': requiredPassword}">
-                      <input class="Input"  [(ngModel)]="UserDetails.password"
+                      <input class="Input" [(ngModel)]="UserDetails.password"
                              name="Password" #Password="ngModel" type="text" maxlength="150" required>
                     </div>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20" *ngIf="!ShowItems">
                     <div class="InputTitle">Confirm Password </div>
                     <div [ngClass]="{'InputError': requiredConfirmPassword}">
-                      <input class="Input"  [(ngModel)]="UserDetails.confirmpassword"
+                      <input class="Input" [(ngModel)]="UserDetails.confirmpassword"
                              name="ConfirmPassword" #ConfirmPassword="ngModel" type="text" maxlength="150" required>
                     </div>
                   </div>

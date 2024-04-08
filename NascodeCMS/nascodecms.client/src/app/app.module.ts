@@ -52,6 +52,9 @@ import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
 import { DatePickerComponent } from './Components/date-picker/date-picker.component';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { TimeZonesComponent } from './Pages/time-zones/time-zones.component';
+import { DropdownApi } from './Services/DropdownApi.service';
+import { CountriesComponent } from './pages/countries/countries.component';
 
 
 export const MY_DATE_FORMATS = {
@@ -97,6 +100,8 @@ export const MY_DATE_FORMATS = {
     AuditLogComponent,
     ContactSubmissionsComponent,
     DatePickerComponent,
+    TimeZonesComponent,
+    CountriesComponent,
    
   ],
   imports: [
@@ -116,7 +121,7 @@ export const MY_DATE_FORMATS = {
     ToastModule,
     NgxPhotoEditorModule
   ],
-  providers: [MessageService, AuthService, ConfirmationService, GlobalService, DatePipe, PicDimensionApiService , UsersGroupsApi, GlobalStaticKeywordsApi,{
+  providers: [ MessageService, AuthService, ConfirmationService, GlobalService, DatePipe, PicDimensionApiService , UsersGroupsApi, GlobalStaticKeywordsApi,{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true,

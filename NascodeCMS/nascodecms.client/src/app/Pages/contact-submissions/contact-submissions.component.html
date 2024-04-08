@@ -32,7 +32,7 @@
         </div>
         <div class="floatR">
           <app-icon-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="ShowFilter" IconSource="../../assets/images/ic_filter.svg" (click)="ShowFiltersPopup = true"></app-icon-button>
-          <app-print-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="PagePermissions.printOpr"></app-print-button>
+          <app-print-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="ShowPrint && PagePermissions.printOpr"></app-print-button>
           <app-export-button class="floatL u-ml-xs-20 mg-bt-10-970" *ngIf="ShowExport && PagePermissions.exportOpr"></app-export-button>
           <app-search-bar class="floatL u-ml-xs-20 mg-bt-10-970" (onTextChange)="onSearch($event)" *ngIf="ShowSearch"></app-search-bar>
           <app-language-button [SelectLangaugeId]="DefaultLanguage" *ngIf="ShowLanguage" class="floatL u-ml-xs-20 mg-bt-10-970" (onLanguageChange)="handlelanguageChange($event)"></app-language-button>

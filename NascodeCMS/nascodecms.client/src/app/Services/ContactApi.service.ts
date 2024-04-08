@@ -76,7 +76,7 @@ export class ContactApiService {
         map(response => response.value),
         catchError((error: HttpErrorResponse) => {
           // Simplified error handling as token logic is now in the interceptor
-          console.log("getContacts error: " + error.message);
+         /// console.log("getContacts error: " + error.message);
           this.handleHttpError(error);
           return throwError(() => new Error(`Error in getContacts: ${error.statusText}`));
         })
@@ -87,7 +87,7 @@ export class ContactApiService {
     return this.http.get<{ value: ContactDto }>(`${this.baseUrl}api/Contact/GetContact/${Id}`).pipe(
       map(response => response.value),
       catchError(error => {
-        console.log("getContactById" + error);
+       // console.log("getContactById" + error);
         this.handleHttpError(error);
         return throwError(() => new Error('Error in getContactById: ' + error));
       })

@@ -69,15 +69,15 @@
           {{ViewMode}} <span *ngIf="ViewMode == 'Items'" class="DescriptionMeduim ColorMyTitleBlack u-pl-xs-10 u-pl-xs-2"> {{TotalCount}} records</span>
         </div>
         <div class="floatR">
-          <app-icon-button class="floatL u-mr-xs-20" IconSource="../../assets/images/ic_clone.svg" (click)="onCloneCLick()" *ngIf="ShowClone && PagePermissions.cloneOpr"></app-icon-button>
-          <app-print-button class="floatL u-mr-xs-20" *ngIf="ShowPrint && PagePermissions.printOpr"></app-print-button>
-          <app-export-button class="floatL u-mr-xs-20" *ngIf="ShowExport && PagePermissions.exportOpr"></app-export-button>
-          <app-icon-button class="floatL u-mr-xs-20" IconSource="../../assets/images/ic_edit_black.svg" (click)="onEditCLick()" *ngIf="ShowEdit && PagePermissions.editOpr"></app-icon-button>
-          <app-icon-button class="floatL u-mr-xs-20" BackgroundColor="#F9E9EF" IconSource="../../assets/images/ic_delete_red.svg" (click)="onDeleteCLick()" *ngIf="ShowDelete && PagePermissions.deleteOpr"></app-icon-button>
+          <app-icon-button class="floatL u-mr-xs-20 mg-bt-10-970" IconSource="../../assets/images/ic_clone.svg" (click)="onCloneCLick()" *ngIf="ShowClone && PagePermissions.cloneOpr"></app-icon-button>
+          <app-print-button class="floatL u-mr-xs-20 mg-bt-10-970" *ngIf="ShowPrint && PagePermissions.printOpr"></app-print-button>
+          <app-export-button class="floatL u-mr-xs-20 mg-bt-10-970" *ngIf="ShowExport && PagePermissions.exportOpr"></app-export-button>
+          <app-icon-button class="floatL u-mr-xs-20 mg-bt-10-970" IconSource="../../assets/images/ic_edit_black.svg" (click)="onEditCLick()" *ngIf="ShowEdit && PagePermissions.editOpr"></app-icon-button>
+          <app-icon-button class="floatL u-mr-xs-20 mg-bt-10-970" BackgroundColor="#F9E9EF" IconSource="../../assets/images/ic_delete_red.svg" (click)="onDeleteCLick()" *ngIf="ShowDelete && PagePermissions.deleteOpr"></app-icon-button>
 
-          <app-search-bar class="floatL u-mr-xs-20" (onTextChange)="onSearch($event)" *ngIf="ViewMode == 'Items'"></app-search-bar>
+          <app-search-bar class="floatL u-mr-xs-20 mg-bt-10-970" (onTextChange)="onSearch($event)" *ngIf="ShowSearch"></app-search-bar>
 
-          <app-icon-title-button class="floatL u-ml-xs-10" Title="Add new" IconSource="../../assets/images/ic_plus_white.svg" (click)="onAddNewClick()" *ngIf="ViewMode == 'Items' && PagePermissions.editOpr" BackgroundColor="#3F3F3F" ></app-icon-title-button>
+          <app-icon-title-button class="floatL u-ml-xs-10 mg-bt-10-970" Title="Add new" IconSource="../../assets/images/ic_plus_white.svg" (click)="onAddNewClick()" *ngIf="ShowAddNew && PagePermissions.addOpr" BackgroundColor="#3F3F3F" ></app-icon-title-button>
 
         </div>
       </div>
@@ -104,7 +104,7 @@
                   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
                     <div class="InputTitle">Record ID</div>
                     <input class="Input" [disabled]="ShowItems" [(ngModel)]="GroupDetails.id"
-                           name="id" #id="ngModel" type="text">
+                           name="id" #id="ngModel" type="text" [disabled]="true">
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 floatL u-relative u-mb-xs-20">
                     <div class="InputTitle">Group Name</div>

@@ -9,6 +9,8 @@ export class AppConsts {
   //// local 
   public static RemoteServiceURL = "https://localhost:7000/"
 
+  //// online 
+ // public static RemoteServiceURL = "http://192.168.0.140:7000/"
 
 
 

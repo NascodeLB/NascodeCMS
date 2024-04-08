@@ -39,7 +39,7 @@ export class PropertiesApi {
         map(response => response.value),
         catchError((error: HttpErrorResponse) => {
           // Simplified error handling as token logic is now in the interceptor
-          console.log("getProperties error: " + error.message);
+          //console.log("getProperties error: " + error.message);
           this.handleHttpError(error);
           return throwError(() => new Error(`Error in getProperties: ${error.statusText}`));
         })
@@ -54,7 +54,7 @@ export class PropertiesApi {
    
     return this.http.post(url, properties).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error("Error in submitProperties", error); // Log detailed error
+       // console.error("Error in submitProperties", error); // Log detailed error
         this.handleHttpError(error);
         return throwError(() => new Error('Error in submitProperties: ' + error.message));
       })

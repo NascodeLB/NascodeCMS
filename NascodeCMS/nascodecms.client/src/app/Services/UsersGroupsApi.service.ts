@@ -61,7 +61,7 @@ export class UsersGroupsApi {
     if (filter.SearchText) {
       params = params.append('SearchText', filter.SearchText);
     }
-    if (filter.PageSize) {
+    if (filter.PageSize && filter.PageSize > 0) {
       params = params.append('PageSize', filter.PageSize.toString());
     }
     if (filter.PageNumber) {

@@ -78,7 +78,7 @@ export class DynamicContentComponent {
   PaginationDetails: PaginationDto | null = null;
   // for default language id
   DefaultLanguage: number = 1;
-
+ 
   // for grid filters
   filters: PaginationFilter = {
     Sorting: 'id desc',
@@ -129,7 +129,9 @@ export class DynamicContentComponent {
   Sectionname: string = "DynamicContent"
 
   isRTL: boolean = false;
-  
+
+  routeChangeEvent: boolean = false;
+
   constructor(
     public DynamicContentApi: DynamicContentApiService,
     public ClsGlobal: GlobalService,
@@ -154,6 +156,7 @@ export class DynamicContentComponent {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
+      
       this.setup();
       
     });
@@ -166,6 +169,8 @@ export class DynamicContentComponent {
     this.url = 'dashboard/dynamiccontent/' + this.categoryTitle + '/' + this.categoryId ;
     this.RecordID = this.route.snapshot.paramMap.get('contentId') ?? "";
     this.DefaultLanguage = Number.parseInt(this.route.snapshot.paramMap.get('language') ?? "1");
+   
+  
     this.Sectionname = "DynamicContent" + this.categoryTitle;
   
     this.contentDetails = new DynamicContentDto();
@@ -175,12 +180,26 @@ export class DynamicContentComponent {
     if (this.RecordID != '') {
       this.ViewMode = "Details";
       this.ShowAllItems('ViewOpr');
+
       this.DisplayInfo(this.RecordID);
+      if (this.DefaultLanguage == 3) {
+        this.isRTL = true;
+      }
     }
     else {
+      this.DefaultLanguage = 1;
+      this.filters = {
+        Sorting: 'id desc',
+        SearchText: '',
+        PageSize: 10,
+        After: 0,
+        language: 1
+      }
+     
       this.getdata();
       this.ViewMode = "Items";
       this.ShowAllItems('GridOpr');
+      
     }
 
   }
@@ -515,7 +534,7 @@ export class DynamicContentComponent {
       this.contentDetails.description = this.mycontent;
     }
    
-    console.log(this.contentDetails.description);
+  //  console.log(this.contentDetails.description);
     this.requiredTitle = false;
     this.requiredSubtitle = false;
     this.requiredButtonText = false;
@@ -600,7 +619,7 @@ export class DynamicContentComponent {
 
         },
         error: (error) => {
-          console.log(error);
+         // console.log(error);
           this.popupService.showMessage({
             title: 'Error!',
             desc: 'Somthing went  rong please try again later',

@@ -8,7 +8,7 @@ namespace NascodeCMS
     {
         string BuildToken(string key, string issuer, CufexUser user);
 
-        //string GenerateJSONWebToken(string key, string issuer, UserDTO user);
+        //string GenerateJSONWebToken(string key, string issuer, TimezonesDto user);
         bool IsTokenValid(string key, string issuer, string token);
         string GetMemberIdFromRefreshToken(string key,  string token);
 

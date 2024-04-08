@@ -13,6 +13,8 @@ import { ProfileComponent } from './Pages/profile/profile.component';
 import { LogFrontendComponent } from './Pages/log-frontend/log-frontend.component';
 import { AuditLogComponent } from './Pages/audit-log/audit-log.component';
 import { ContactSubmissionsComponent } from './Pages/contact-submissions/contact-submissions.component';
+import { TimeZonesComponent } from './Pages/time-zones/time-zones.component';
+import { CountriesComponent } from './pages/countries/countries.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,12 @@ const routes: Routes = [
       // for dynamic content
       { path: 'dynamiccontent/:pagetitle/:id', component: DynamicContentComponent },
       { path: 'dynamiccontent/:pagetitle/:id/:contentId/:language', component: DynamicContentComponent },
+
+      // for diffentions
+      { path: 'definitions/timezones', component: TimeZonesComponent },
+      { path: 'definitions/timezones/:id', component: TimeZonesComponent },
+      { path: 'definitions/countries', component: CountriesComponent },
+      { path: 'definitions/countries/:id/:language', component: CountriesComponent },
 
       // for reports
       { path: 'reports/contactsubmissions', component: ContactSubmissionsComponent },

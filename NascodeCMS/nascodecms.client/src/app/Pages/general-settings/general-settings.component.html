@@ -12,10 +12,10 @@
       
       <div class="TableBody u-width100 ">
         <div class="Section width100 u-padding20 ">
-          <div class="u-table">
-            <div class="u-tableCell">
+          <div class="u-table u-width100 ">
+            <div class="u-tableCell u-width100 ">
               <ng-container *ngFor="let data of Data">
-                <div class="floatL col-xs-6 col-md-6 col-lg-6">
+                <div class="floatL col-xs-12 col-md-4 col-lg-4">
                   <div class="InputTitle">{{ data.code }}</div>
                   <input class="Input u-mb-xs-10" type="text" [disabled]="Disabled" [value]="data.value" maxlength="255" (input)="hanldeTextboxInputChange($event, data.code)">
                 </div>

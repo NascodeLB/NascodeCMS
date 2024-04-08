@@ -597,7 +597,7 @@ export class EmailsBookManagementComponent {
       this.ShowPrint = true;
       this.ShowClone = false;
       this.ShowExport = false;
-      this.ShowEdit = true;
+      this.ShowEdit = false;
       this.ShowSearch = false;
       this.ShowLanguage = false;
       this.ShowAddNew = false;

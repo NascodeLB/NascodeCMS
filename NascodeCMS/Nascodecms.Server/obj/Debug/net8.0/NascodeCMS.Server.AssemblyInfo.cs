@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NascodeCMS.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92a7399e427792687d3843c24b65f3f4c283d4d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("NascodeCMS.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NascodeCMS.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

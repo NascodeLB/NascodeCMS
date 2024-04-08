@@ -190,7 +190,7 @@ namespace NascodeCMS.Server.Controllers
                         var tmp = tb.commitChanges(ref da, ds, ref CN);
                         if (tmp == null)
                         {
-                            _auditLogger.Add(user.UserID.ToString(), "Users", user.ID.ToString(), "Reset Password [Successful]", "Reset Password to the Cufex for username [" + user.UserID.ToString() + "]");
+                            _auditLogger.Add(user.ID.ToString(), "Users", user.ID.ToString(), "Reset Password [Successful]", "Reset Password to the Cufex for username [" + user.UserID.ToString() + "]");
 
                             return Task.FromResult<IActionResult>(Ok(user));
                         }
@@ -486,7 +486,7 @@ namespace NascodeCMS.Server.Controllers
             dr["active"] = user.Active;
             dr["mobile"] = user.Mobile;
             dr["email"] = user.Email;
-            //dr["TimezoneID"] = user.TimezoneID;
+            dr["TimezoneID"] = user.TimezoneID;
             dr["Deleted"] = 0;
 
             if (user.Password != "")

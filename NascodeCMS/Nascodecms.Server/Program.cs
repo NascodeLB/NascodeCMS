@@ -37,7 +37,16 @@ builder.Services.AddCors(options =>
                               .AllowAnyHeader()
                               .AllowCredentials());
 });
-
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAllOrigins",
+//        builder =>
+//        {
+//            builder.AllowAnyOrigin() // This allows all origins
+//                   .AllowAnyMethod() // This allows all HTTP methods
+//                   .AllowAnyHeader(); // This allows all headers
+//        });
+//});
 IConfiguration config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json") 
     .Build();
@@ -91,7 +100,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-//app.UseCors("AllowOrigin");
+//app.UseCors("AllowAllOrigins");
 app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();

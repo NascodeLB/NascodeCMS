@@ -3,7 +3,8 @@
   <div class="PageContainer">
     <div class=" u-width100 display-flex justify-space-between">
       <div class="PageTitle">Profile</div>
-     
+      <app-icon-button class="floatL mg-bt-10-970" IconSource="../../assets/images/ic_edit_black.svg" (click)="onEditCLick()" *ngIf="ViewMode == 'View'"></app-icon-button>
+
     </div>
 
     <div class="u-ht-xs-20"></div>
@@ -11,30 +12,34 @@
 
       <div class="TableBody u-width100 ">
         <div class="Section width100 u-padding20 ">
-          <div class="u-table">
-            <div class="u-tableCell">
-              <div class="floatL col-xs-6 col-md-6 col-lg-6  u-mb-xs-20">
+          <div class="u-table u-width100 ">
+            <div class="u-tableCell u-width100 ">
+              <div class="floatL col-xs-12 col-md-6 col-lg-4  u-mb-xs-20">
                 <div class="InputTitle">Fullname</div>
-                {{ Data.fullName }}
-              </div>
+                <div [ngClass]="{'InputError': requiredFullname}">
+                  <input class="Input u-mb-xs-10" type="text" [disabled]="Disabled"
+                         [(ngModel)]="Data.fullName"
+                         name="FullName" #FullName="ngModel"
+                         maxlength="150">
+                  </div>
+                </div>
 
-              <div class="floatL col-xs-6 col-md-6 col-lg-6  u-mb-xs-20">
-                <div class="InputTitle">UserId</div>
-                {{ Data.userID }}
+                <div class="floatL col-xs-12 col-md-6 col-lg-4  u-mb-xs-20">
+                  <div class="InputTitle">UserId</div>
+                  <input class="Input u-mb-xs-10" type="text" disabled="Disabled" [value]="Data.userID" maxlength="255">
+                </div>
+                <div class="floatL col-xs-12 col-md-6 col-lg-4  u-mb-xs-20">
+                  <div class="InputTitle">Mobile</div>
+                  <div [ngClass]="{'InputError': requiredMobile}">
+                    <input class="Input u-mb-xs-10" type="text" [disabled]="Disabled" [(ngModel)]="Data.mobile"
+                           name="Mobile" #subject="ngModel" maxlength="15">
+                  </div>
+                </div>
+                <div class="floatL col-xs-12 col-md-6 col-lg-4  u-mb-xs-20">
+                  <div class="InputTitle">Email</div>
+                  <input class="Input u-mb-xs-10" type="text" disabled="Disabled" [value]="Data.email" maxlength="255">
+                </div>
               </div>
-              <div class="floatL col-xs-6 col-md-6 col-lg-6  u-mb-xs-20">
-                <div class="InputTitle">Mobile</div>
-                {{ Data.mobile }}
-              </div>
-              <div class="floatL col-xs-6 col-md-6 col-lg-6  u-mb-xs-20">
-                <div class="InputTitle">Email</div>
-                {{ Data.email }}
-              </div>
-              <div class="floatL col-xs-6 col-md-6 col-lg-6  u-mb-xs-20">
-                <div class="InputTitle">Group Name</div>
-                {{ Data.groupName }}
-              </div>
-            </div>
           </div>
 
 
@@ -44,8 +49,14 @@
 
     </div>
 
+    <div class="BottomActionsContainer" *ngIf="ViewMode == 'Edit'">
+      <div class="NormalDiv justify-end">
+        <button class="floatR u-mr-xs-20  GlobalButton IWantAMouseOVerNowBut75 " (click)="save()">Save</button>
+        <app-icon-title-button class="floatL" Title="Cancel" (click)="onCancel()" BackgroundColor="transparent" TextColor="#3F3F3F"></app-icon-title-button>
 
-    
+      </div>
+    </div>
+
 
   </div>
 </div>

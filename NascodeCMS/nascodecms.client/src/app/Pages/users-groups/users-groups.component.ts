@@ -40,6 +40,8 @@ export class UsersGroupsComponent {
     { checked: false, title: "profile" },
     { checked: false, title: "errorslog" },
     { checked: false, title: "auditlogs" },
+    { checked: false, title: "timezones" },
+    { checked: false, title: "countries" },
   ];
   
   ChangePermissionView: boolean = false;
@@ -84,6 +86,7 @@ export class UsersGroupsComponent {
     After: 0
   }
   GroupDetails: UserGroup = new UserGroup();
+
   ShowItems: boolean = false;
   ShowEdit: boolean = false;
   ShowDelete: boolean = false;
@@ -92,6 +95,10 @@ export class UsersGroupsComponent {
   ShowExport: boolean = false;
   ShowCancelSave: boolean = false;
   hideCreationBanner: boolean = false;
+  ShowSearch: boolean = false;
+  ShowAddNew: boolean = false;
+
+
   requiredGroupName: boolean = false;
   url: string = "dashboard/settings/usersgroups";
   Permissions: UserGroupsFile[] = [];
@@ -436,6 +443,73 @@ export class UsersGroupsComponent {
     }, (error: any) => {
     });
   }
+  //ShowAllItems(Mode: string) {
+  //  if (Mode == 'AddOpr') {
+  //    this.ShowCancelSave = true;
+  //    this.ShowDelete = false;
+  //    this.ShowClone = false;
+  //    this.ShowPrint = false;
+  //    this.ShowExport = false;
+  //    this.ShowItems = false;
+  //    this.ShowEdit = false;
+  //    this.hideCreationBanner = true;
+  //    this.ShowSearch = false;
+  //    this.ShowAddNew = false;
+  //  } else if (Mode == 'ViewOpr') {
+  //    this.ShowCancelSave = true;
+  //    this.ShowDelete = true;
+  //    this.ShowClone = false;
+  //    this.ShowPrint = false;
+  //    this.ShowExport = false;
+  //    this.ShowItems = false;
+  //    this.ShowEdit = false;
+  //    this.hideCreationBanner = false;
+  //    this.ShowSearch = false;
+  //    this.ShowAddNew = false;
+  //  } else if (Mode == 'GridOpr') {
+  //    this.ShowDelete = false;
+  //    this.ShowPrint = false;
+  //    this.ShowClone = false;
+  //    this.ShowExport = false;
+  //    this.ShowEdit = false;
+  //    this.ShowSearch = true;
+  //    this.ShowAddNew = true;
+
+  //  } else if (Mode == 'CancelOpr') {
+  //    this.ShowCancelSave = false;
+  //    this.ShowDelete = true;
+  //    this.ShowClone = true;
+  //    this.ShowPrint = false;
+  //    this.ShowExport = false;
+  //    this.ShowItems = true;
+  //    this.ShowEdit = true;
+  //    this.hideCreationBanner = false;
+  //    this.ShowSearch = false;
+  //    this.ShowAddNew = false;
+
+  //  } else if (Mode == 'GridSelectOpr') {
+  //    this.ShowDelete = true;
+  //    this.ShowPrint = true;
+  //    this.ShowClone = false;
+  //    this.ShowExport = false;
+  //    this.ShowEdit = false;
+  //    this.ShowSearch = false;
+  //    this.ShowAddNew = false;
+     
+  //  }
+  //  else if (Mode == 'Clone') {
+  //    this.ShowCancelSave = true;
+  //    this.ShowDelete = false;
+  //    this.ShowClone = false;
+  //    this.ShowPrint = false;
+  //    this.ShowExport = false;
+  //    this.ShowItems = false;
+  //    this.ShowEdit = false;
+  //    this.hideCreationBanner = true;
+  //    this.ShowSearch = false;
+  //    this.ShowAddNew = false;
+  //  }
+  //}
   ShowAllItems(Mode: string) {
     if (Mode == 'AddOpr') {
       this.ShowCancelSave = true;
@@ -446,6 +520,8 @@ export class UsersGroupsComponent {
       this.ShowItems = false;
       this.ShowEdit = false;
       this.hideCreationBanner = true;
+      this.ShowSearch = false;
+      this.ShowAddNew = false;
 
     } else if (Mode == 'ViewOpr') {
       this.ShowCancelSave = true;
@@ -455,31 +531,37 @@ export class UsersGroupsComponent {
       this.ShowExport = false;
       this.ShowItems = false;
       this.ShowEdit = false;
+      this.ShowSearch = false;
+      this.ShowAddNew = false;
       this.hideCreationBanner = false;
     } else if (Mode == 'GridOpr') {
       this.ShowDelete = false;
       this.ShowPrint = false;
       this.ShowClone = false;
-      this.ShowExport = false;
+      this.ShowExport = true;
       this.ShowEdit = false;
+      this.ShowSearch = true;
+      this.ShowAddNew = true;
     } else if (Mode == 'CancelOpr') {
       this.ShowCancelSave = false;
       this.ShowDelete = true;
       this.ShowClone = true;
-      this.ShowPrint = false;
+      this.ShowPrint = true;
       this.ShowExport = false;
       this.ShowItems = true;
       this.ShowEdit = true;
       this.hideCreationBanner = false;
-
+      this.ShowSearch = false;
+      this.ShowAddNew = false;
     } else if (Mode == 'GridSelectOpr') {
       this.ShowDelete = true;
       this.ShowPrint = true;
       this.ShowClone = false;
-      this.ShowExport = true;
-      this.ShowEdit = true;
-    }
-    else if (Mode == 'Clone') {
+      this.ShowExport = false;
+      this.ShowEdit = false;
+      this.ShowSearch = false;
+      this.ShowAddNew = false;
+    } else if (Mode == 'Clone') {
       this.ShowCancelSave = true;
       this.ShowDelete = false;
       this.ShowClone = false;
@@ -488,6 +570,8 @@ export class UsersGroupsComponent {
       this.ShowItems = false;
       this.ShowEdit = false;
       this.hideCreationBanner = true;
+      this.ShowSearch = false;
+      this.ShowAddNew = false;
     }
   }
 

@@ -22,7 +22,7 @@ export class AccountLoginComponent {
   form2: FormGroup;
   form3: FormGroup;
   form4: FormGroup;
-
+  failedLoginAtpment: number = 0;
 
 
   changeColor() {
@@ -73,9 +73,7 @@ export class AccountLoginComponent {
   }
 
   ngOnInit(): void {
-
     this.MyBg = './assets/images/login_bg.png';
-
     if (this.shouldShowResetDiv) {
       this.ErrorMsg = "Enter your email and choose a new password";
       this.LoginSentence = "Reset password"
@@ -86,6 +84,11 @@ export class AccountLoginComponent {
   }
 
   async onSubmit() {
+    if (this.failedLoginAtpment == 5) {
+      this.ErrorMsg = 'Account is blocked';
+      this.shouldChangeColor = true;
+      return;
+    }
     if (this.form.invalid) {
       this.ErrorMsg = 'Please fill in all required fields';
       this.shouldChangeColor = true;
@@ -95,7 +98,8 @@ export class AccountLoginComponent {
     try {
       const success = await this.auth.loginCufex(this.form.value).toPromise();
 
-      if (success) { 
+      if (success) {
+        this.failedLoginAtpment = 0;
         this.form.reset(); 
         this.auth.GetUserTimeZone().subscribe({
           next: (response) => {
@@ -109,6 +113,7 @@ export class AccountLoginComponent {
         this.ErrorMsg = 'Incorrect username or password, try again.';
         this.shouldChangeColor = true;
         this.form.reset();
+        this.failedLoginAtpment++;
       }
     } catch (error) {
       this.ErrorMsg = 'An error occurred during login. Please try again later.';
@@ -152,7 +157,13 @@ export class AccountLoginComponent {
 
 
 
-  onNewPasswordSubmit() { 
+  onNewPasswordSubmit() {
+    
+    if (this.form3.value.password != this.form3.value.confirmpassword) {
+      let errorMessage = 'New Password and confirm password dont mtach.';
+      this.messageService.add({ severity: 'error', summary: 'View', detail: errorMessage });
+      return;
+    }
     this.form3.patchValue({
       email: localStorage.getItem('memberemail'),
       ResetCode: localStorage.getItem('verifykey'),

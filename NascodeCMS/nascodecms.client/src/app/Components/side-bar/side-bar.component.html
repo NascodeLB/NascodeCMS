@@ -67,8 +67,35 @@
         </ng-container>
       </ul>
     </div>
+    <div class="DropList">
+      <div class="DropListHead u-mb-xs-10">
+        <div class="SelectIndicator" [class.SelectIndicator-Selected]="SelectedList == 'definitions'"></div>
+        <div class="Hovered" [class.selected]="SelectedList == 'definitions'" (click)="changeSelectedList($event,'definitions')">
+          <div class="display-flex-center justify-normal">
+            <img class="icon" src="../../../assets/images/ic_definitions.svg" />
+            <div class="DropListTitle" [class.display-none]="CloseMenu">Definitions</div>
+          </div>
+          <div [class]="SelectedList == 'definitions'? 'ic_up' : 'ic_down'" [class.display-none]="CloseMenu"></div>
+        </div>
+      </div>
+      <ul id="list-definitions" class="LinksList" [class.expanded]="SelectedList == 'definitions'">
 
-    
+
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'timezones'"
+            (click)="selectlink('timezones','definitions')"
+            *ngIf="checkViewPermissions('timezones')">
+          <a class="linkhover" routerLink="definitions/timezones">Timezones</a>
+        </li>
+        <li class="LinkListItem ListLink" [class.display-none]="CloseMenu"
+            [class.ListLinkSelected]="SelectedSubList == 'countries'"
+            (click)="selectlink('countries','definitions')"
+            *ngIf="checkViewPermissions('countries')">
+          <a class="linkhover" routerLink="definitions/countries">Countries</a>
+        </li>
+      </ul>
+    </div>
+
 
     <div class="DropList">
       <div class="DropListHead u-mb-xs-10">

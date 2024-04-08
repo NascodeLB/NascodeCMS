@@ -16,6 +16,7 @@ import { forEach } from 'lodash';
 })
 
 export class AuditLogComponent {
+
   // for grid 
   Headers: { Title: string; Type: string, Code: string }[] = [
     { Title: 'UserID', Type: 'text', Code: 'userID' },
@@ -67,6 +68,7 @@ export class AuditLogComponent {
   }
   ShowFilter: boolean = true;
   ShowFiltersPopup: boolean = false;
+  ShowPrint: boolean = false;
 
 
   //for multi select data
@@ -138,8 +140,9 @@ export class AuditLogComponent {
     const hasCheckedItem = this.Data.some(item => item.checked === 1);
     this.CheckedIds = this.Data.filter(item => item.checked === 1 && item.id !== null).map(item => item.id as number);
     this.HeadMessage = this.getSelectedItemCount() + " selected";
+    this.ShowPrint = true;
     if (!hasCheckedItem) {
-
+      this.ShowPrint = false;
       this.HeadMessage = this.TotalCount + " Records";
     }
 
@@ -188,8 +191,9 @@ export class AuditLogComponent {
       });
       this.CheckedIds = this.Data.filter(item => item.checked === 1 && item.id !== null).map(item => item.id as number);
       this.HeadMessage = this.getSelectedItemCount() + " selected";
+      this.ShowPrint = true;
     } else {
-
+      this.ShowPrint = false;
       this.Data.forEach(item => item.checked = 0);
       this.CheckedIds = this.Data.filter(item => item.checked === 1 && item.id !== null).map(item => item.id as number);
       this.HeadMessage = this.TotalCount + " Records";

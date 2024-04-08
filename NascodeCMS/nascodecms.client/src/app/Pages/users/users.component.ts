@@ -13,6 +13,10 @@ import { UsersApiService, PaginationFilter } from '../../Services/UsersApi.servi
 import { CKEditorComponent } from 'ng2-ckeditor';
 import { UsersGroupsApi } from '../../Services/UsersGroupsApi.service';
 import { UserGroup } from '../../Models/UserGroup.model';
+import { TimezonesApi } from '../../Services/TimezonesApi.service';
+import { TimezonesDto } from '../../Models/TimezonesDto.model';
+import { DropdownApi, DropdownFilter } from '../../Services/DropdownApi.service';
+import { DropdownDto } from '../../Models/DropdownDto.model';
 
 
 @Component({
@@ -72,6 +76,7 @@ export class UsersComponent {
   requiredMobile: boolean = false;
   requiredEmail: boolean = false;
   requiredGroup: boolean = false;
+  requiredTimeZone: boolean = false;
   requiredUserID: boolean = false;
   requiredPassword: boolean = false;
   requiredConfirmPassword: boolean = false;
@@ -103,12 +108,28 @@ export class UsersComponent {
 
   // for groups dropdown 
   GroupsList: { Value: string, Title: string }[] = [];
+  GroupsListDropDownFilter: DropdownFilter = {
+    tableName: 'Cufex_UsersGroups',
+    valueField: 'id',
+    titleField: 'name',
+    whereConditions: {
+      'isnull(deleted,0)': '= 0'
+    }
+  }
 
- 
-  
+  // for groups dropdown 
+  TimezoneList: { Value: string, Title: string }[] = [];
+  TimeZonesDropDownFilter: DropdownFilter = {
+    tableName: 'Timezones',
+    valueField: 'id',
+    titleField: 'title'
+  }
+
   constructor(
+    public DropdownAPI: DropdownApi,
     public UsersApiService: UsersApiService,
     public UsersGroupsApiService: UsersGroupsApi,
+    public TimeZoneApiService: TimezonesApi,
     public ClsGlobal: GlobalService,
     private route: ActivatedRoute,
     private router: Router,
@@ -118,20 +139,45 @@ export class UsersComponent {
   ) {
   }
   FillDropDown() {
-    this.UsersGroupsApiService.getGroups(this.filters).subscribe((result: { groups: UserGroup[], pagination: PaginationDto }) => {
-   
-      this.GroupsList = result.groups.map(obj => ({
-        Value: obj.id?.toString() || "",
-        Title: obj.name || ""
-      }));
+    this.filters = {
+      Sorting: 'id desc',
+      SearchText: '',
+      PageSize: 0,
+      After: 0
+    }
 
+   
+
+    this.DropdownAPI.getdata(this.GroupsListDropDownFilter).subscribe((result: { value: { dropdown: DropdownDto[] } }) => {
+
+
+      result.value.dropdown.map(obj => (
+        this.GroupsList.push({
+          Value: obj.value?.toString() || "",
+          Title: obj.title
+        })
+      ));
       // Insert a new item at index 0
       this.GroupsList.unshift({
         Value: "0",
         Title: "Select Group"
       });
+    });
 
-     
+
+
+    this.DropdownAPI.getdata(this.TimeZonesDropDownFilter).subscribe((result: { value: { dropdown: DropdownDto[] } }) => {
+      result.value.dropdown.map(obj => (
+        this.TimezoneList.push({
+          Value: obj.value?.toString() || "",
+          Title: obj.title
+        })
+      ));
+      // Insert a new item at index 0
+      this.TimezoneList.unshift({
+        Value: "0",
+        Title: "Select Timezone"
+      });
     });
 
 
@@ -146,7 +192,7 @@ export class UsersComponent {
 
     this.FillDropDown()
     this.RecordID = this.route.snapshot.paramMap.get('id') ?? "";
-  
+
     this.UserDetails = new UserDto();
 
     if (this.RecordID != '') {
@@ -165,7 +211,7 @@ export class UsersComponent {
     this.UsersApiService.getUsers(this.filters).subscribe((result: { users: UserDto[], pagination: PaginationDto }) => {
       this.Data = result.users;
       this.PaginationDetails = result.pagination;
-     
+
       // Assign pages or default to an empty array
       this.Pages = this.PaginationDetails.pages || [];
       this.FirstPage = this.PaginationDetails.firstPage as number;
@@ -189,6 +235,9 @@ export class UsersComponent {
     this.UserDetails.groupID = Number(value);
   }
 
+  handleOnSelectTimezoneChange(value: string) {
+    this.UserDetails.timezoneID = Number(value);
+  }
 
   handleCheckboxChange(event: { id: number, checked: boolean }) {
 
@@ -211,7 +260,7 @@ export class UsersComponent {
   }
 
   handleRowCLick(id: number) {
-    this.router.navigateByUrl(this.url + '/' + id );
+    this.router.navigateByUrl(this.url + '/' + id);
   }
 
   handleSortClick(event: { Title: string, Sort: string }) {
@@ -292,17 +341,18 @@ export class UsersComponent {
     this.UsersApiService.getUser(recID).subscribe((data: UserDto) => {
       this.UserDetails = data;
       this.UserDetails.password = "";
+
       this.CreatedBy = this.UserDetails.createdByName ?? 'Not Set';
       this.ModifiedBy = this.UserDetails.modifiedByName ?? 'Not Set';
       if (this.UserDetails.modificationDate) {
-        const utcOffsetString = localStorage.getItem('utcOffset')?.toString() ?? '+03';
-        this.ModificationDate = this.ClsGlobal.formatWithUtcOffsetString(this.UserDetails.modificationDate, 'dd/MM/yyyy HH:mm:ss',  new DatePipe('en-US'));
+        
+        this.ModificationDate = this.ClsGlobal.formatWithUtcOffsetString(this.UserDetails.modificationDate, 'dd/MM/yyyy HH:mm:ss', new DatePipe('en-US'));
       } else {
         this.ModificationDate = 'Not Set';
       }
       if (this.UserDetails.creationDate) {
-        const utcOffsetString = localStorage.getItem('utcOffset')?.toString() ?? '+03';
-        this.CreationDate = this.ClsGlobal.formatWithUtcOffsetString(this.UserDetails.creationDate, 'dd/MM/yyyy HH:mm:ss',  new DatePipe('en-US'));
+       
+        this.CreationDate = this.ClsGlobal.formatWithUtcOffsetString(this.UserDetails.creationDate, 'dd/MM/yyyy HH:mm:ss', new DatePipe('en-US'));
       } else {
         this.CreationDate = 'Not Set';
       }
@@ -333,6 +383,7 @@ export class UsersComponent {
   Clear() {
     this.requiredEmail = false;
     this.requiredGroup = false;
+    this.requiredTimeZone = false;
     this.requiredUserID = false;
     this.requiredFullname = false;
     this.requiredMobile = false;
@@ -426,6 +477,8 @@ export class UsersComponent {
     this.requiredFullname = false;
     this.requiredMobile = false;
     this.requiredGroup = false;
+    this.requiredTimeZone = false;
+
     this.requiredUserID = false;
     this.Message = '';
     if (this.ClsGlobal.isFieldEmpty(this.UserDetails, 'fullName')) {
@@ -440,7 +493,7 @@ export class UsersComponent {
       this.requiredMobile = true;
       this.Message += '- Mobile Number is Required\n'
     }
-   
+
     if (this.ClsGlobal.isFieldEmpty(this.UserDetails, 'email') || this.ClsGlobal.isValidEmailField(this.UserDetails, 'email') == false) {
       this.requiredEmail = true;
       this.Message += '- Email is Required\n'
@@ -449,6 +502,11 @@ export class UsersComponent {
     if (this.UserDetails.groupID == null || this.UserDetails.groupID == 0) {
       this.requiredGroup = true;
       this.Message += '- Group is Required\n'
+    }
+
+    if (this.UserDetails.timezoneID == null || this.UserDetails.timezoneID == 0) {
+      this.requiredTimeZone = true;
+      this.Message += '- Timezone is Required\n'
     }
     if (this.UserDetails.password != "") {
       if (this.UserDetails.password.length < 8) {
@@ -461,7 +519,7 @@ export class UsersComponent {
       }
 
     }
-   
+
 
     if (this.Message != '') {
       this.popupService.showMessage({
@@ -470,7 +528,7 @@ export class UsersComponent {
         buttonTitle: 'OK',
         type: 'Error',
       });
-    }else {
+    } else {
       if (this.UserDetails.id == null) {
         this.UserDetails.id = 0;
         this.error = 'Record  adedd successfully';
@@ -480,6 +538,13 @@ export class UsersComponent {
         next: (response) => {
           this.ShowAllItems('ViewOpr');
           if (this.RecordID != '') {
+            this.Auth.GetUserTimeZone().subscribe({
+              next: (response) => {
+                localStorage.setItem('utcOffset', response.utcOffest);
+              },
+              error: (error) => {
+              }
+            });
             this.DisplayInfo(response);
             this.popupService.showMessage({
               title: 'Success!',
@@ -495,7 +560,7 @@ export class UsersComponent {
               buttonTitle: 'OK',
               type: 'Success',
             });
-            this.router.navigateByUrl(this.url + '/' + response );
+            this.router.navigateByUrl(this.url + '/' + response);
           }
 
         },
@@ -510,7 +575,7 @@ export class UsersComponent {
       });
 
     }
-    
+
   }
 
   deleteSelectedUsers(EmailsbooksIdsToDelete: number[]) {

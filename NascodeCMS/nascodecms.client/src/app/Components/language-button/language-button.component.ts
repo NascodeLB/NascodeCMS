@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2 } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, Renderer2, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-language-button',
@@ -21,13 +21,28 @@ export class LanguageButtonComponent {
   constructor(private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit(): void {
-    this.Languages.map(item => {
-      if (item.id == this.SelectLangaugeId) {
-        this.Title = item.code;
-      }
-    });
+    
+    //this.Languages.map(item => {
+    //  if (item.id == this.SelectLangaugeId) {
+    //    this.Title = item.code;
+    //  }
+    //});
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    
+    if (changes['SelectLangaugeId']) {
+     
+        this.Languages.map(item => {
+          if (item.id == this.SelectLangaugeId) {
+            this.Title = item.code;
+          }
+        });
+      
+    }
+
+  }
+ 
   changeSelectedLanguage(LanguageId: number, CodeId: string) {
     this.SelectLangaugeId = LanguageId;
     this.Title = CodeId;
